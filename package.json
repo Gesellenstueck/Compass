@@ -6,6 +6,7 @@
   "main": "server.js",
   "scripts": {
     "build": "cd client && npm run build",
+    "storybook": "cd client && start-storybook -p 6006 -s public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettify": "prettier --write .",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
