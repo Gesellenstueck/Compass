@@ -1,5 +1,6 @@
 {
   "name": "kummerkasten",
+  "private": "true",
   "version": "1.0.0",
   "description": "Gesellenstueck ",
   "main": "server.js",
