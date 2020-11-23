@@ -5,6 +5,7 @@
   "description": "Gesellenstueck ",
   "main": "server.js",
   "scripts": {
+    "postinstall": "cd client && npm install",
     "build": "cd client && npm run build && npm run build-storybook",
     "storybook": "cd client && start-storybook -p 6006 -s public",
     "test": "echo \"Error: no test specified\" && exit 1",
