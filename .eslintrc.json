@@ -4,7 +4,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": ["prettier", "eslint:recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
