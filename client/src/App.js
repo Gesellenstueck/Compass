@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Button from "./stories/Button";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <a href="/storybook">To Storybook</a>
         <Button />
       </header>
     </div>
