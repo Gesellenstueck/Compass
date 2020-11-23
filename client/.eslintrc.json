@@ -3,7 +3,12 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["react-app", "../.eslintrc.json", "plugin:react/recommended"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "../.eslintrc.json",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
