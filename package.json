@@ -7,8 +7,9 @@
   "scripts": {
     "postinstall": "cd client && npm install",
     "build": "cd client && npm run build && npm run build-storybook",
+    "test": "npm run lint && cd client && npm test",
+    "lint": "eslint . --ext .js",
     "storybook": "cd client && start-storybook -p 6006 -s public",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prettify": "prettier --write .",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
