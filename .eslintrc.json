@@ -11,11 +11,12 @@
     },
     "ecmaVersion": 12
   },
+
   "plugins": [],
   "rules": {
     "no-unused-vars": [
       "warn",
-      { "vars": "all", "args": "all", "ignoreRestSiblings": true }
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": true }
     ]
   }
 }
