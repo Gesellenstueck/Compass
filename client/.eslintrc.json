@@ -23,6 +23,8 @@
   },
 
   "plugins": ["react"],
-  "rules": { "react/react-in-jsx-scope": 0 },
-  "import/no-anonymous-default-export": "off"
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "import/no-anonymous-default-export": "off"
+  }
 }
