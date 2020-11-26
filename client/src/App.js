@@ -4,6 +4,26 @@ import Button from "./components/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+  //basic examples to test the Routing
+
+  function Survey() {
+    return <h2>Survey</h2>;
+  }
+
+  function Whiteboard() {
+    return <h2>Whiteboard</h2>;
+  }
+
+  function Dashboard() {
+    return <h2>Dashboard</h2>;
+  }
+
+  function Login() {
+    return <h2>Login</h2>;
+  }
+
+  //end of examples
+
   return (
     <Router>
       <div className="App">
@@ -14,13 +34,13 @@ function App() {
           </p>
           <ul>
             <li>
-              <Link to="/Survey">Survey</Link>
+              <Link to="/survey">Survey</Link>
             </li>
             <li>
-              <Link to="/Whiteboard">Team Board</Link>
+              <Link to="/whiteboard">Team Board</Link>
             </li>
             <li>
-              <Link to="/Dashboard">Survey</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
               <Link to="/">Login Page</Link>
@@ -29,6 +49,20 @@ function App() {
           <a href="/storybook">To Storybook</a>
           <Button />
         </header>
+        <Switch>
+          <Route path="/survey">
+            <Survey />
+          </Route>
+          <Route path="/whiteboard">
+            <Whiteboard />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/">
+            <Login />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
