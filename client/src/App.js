@@ -2,28 +2,12 @@ import React from "react";
 import "./App.css";
 import Button from "./components/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Whiteboard from "./pages/Whiteboard";
+import Survey from "./pages/Survey";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  //basic examples to test the Routing
-
-  function Survey() {
-    return <h2>Survey</h2>;
-  }
-
-  function Whiteboard() {
-    return <h2>Whiteboard</h2>;
-  }
-
-  function Dashboard() {
-    return <h2>Dashboard</h2>;
-  }
-
-  function Login() {
-    return <h2>Login</h2>;
-  }
-
-  //end of examples
-
   return (
     <Router>
       <div className="App">

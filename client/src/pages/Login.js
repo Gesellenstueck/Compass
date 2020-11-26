@@ -1,4 +1,4 @@
-function Dashboard() {
+function Login() {
   return (
     <>
       <h2>Login</h2>
@@ -7,4 +7,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Login;
