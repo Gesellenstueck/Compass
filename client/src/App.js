@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import GlobalStyles from "./GlobalStyles";
 import Button from "./components/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Whiteboard from "./pages/Whiteboard";
