@@ -1,8 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { render } from "@testing-library/react";
 import App from "./App";
 
-test("renders storybook react link", () => {
+test("renders without crashing", () => {
   render(<App />);
-  const linkElement = screen.getByText(/To Storybook/i);
-  expect(linkElement).toBeInTheDocument();
 });
