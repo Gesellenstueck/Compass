@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import Button from "./components/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
