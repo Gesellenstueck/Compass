@@ -27,39 +27,34 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <ul>
-            <li>
-              <Link to="/survey">Survey</Link>
-            </li>
-            <li>
-              <Link to="/whiteboard">Team Board</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/">Login Page</Link>
-            </li>
-          </ul>
-          <a href="/storybook">To Storybook</a>
-          <Button />
-        </header>
+        <ul>
+          <li>
+            <Link to="/survey">Survey</Link>
+          </li>
+          <li>
+            <Link to="/whiteboard">Team Board</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/">Login Page</Link>
+          </li>
+        </ul>
+        <a href="/storybook">To Storybook</a>
+        <Button />
+
         <Switch>
-          <Route path="/survey">
+          <Route exact path="/survey">
             <Survey />
           </Route>
-          <Route path="/whiteboard">
+          <Route exact path="/whiteboard">
             <Whiteboard />
           </Route>
-          <Route path="/dashboard">
+          <Route exact path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Login />
           </Route>
         </Switch>
