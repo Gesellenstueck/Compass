@@ -12,14 +12,20 @@ function App() {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <ul>
+            <li>
+              <Link to="/Survey">Survey</Link>
+            </li>
+            <li>
+              <Link to="/Whiteboard">Team Board</Link>
+            </li>
+            <li>
+              <Link to="/Dashboard">Survey</Link>
+            </li>
+            <li>
+              <Link to="/">Login Page</Link>
+            </li>
+          </ul>
           <a href="/storybook">To Storybook</a>
           <Button />
         </header>
