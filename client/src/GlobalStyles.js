@@ -19,11 +19,14 @@ const GlobalStyles = createGlobalStyle`
     --card-rose: #FECDC5;
     --card-yellow: #FFE591;
     --card-orange: #FFC057;
-
-
-
   }
 
+    #root{
+      display: grid;
+      //grid-settings here
+      height: 100vh;
+      height: 100vw;
+    }
 
 html {
   @font-face {
@@ -33,6 +36,7 @@ html {
   }
   font-family:"Oxygen-Regular";
   font-size:16px;   
+ 
      }
 
 
@@ -50,6 +54,15 @@ h1, h2, h3, h4 {
   }
   font-family:"Oxygen-Bold";
   
+}
+
+button {
+  outline: none;
+  cursor: pointer;  
+}
+
+a {
+  text-decoration: none;
 }
 
 
