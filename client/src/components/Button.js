@@ -6,11 +6,13 @@ const sizes = {
   small: {
     width: "30vw",
     height: "1rem",
+    font: "Oxygen-Regular",
   },
   medium: {},
   large: {
     width: "40vw",
     height: "2rem",
+    font: "Oxygen-Bold",
   },
 };
 
@@ -19,6 +21,7 @@ const SubmitButton = styled.button`
   text-transform: uppercase;
   color: var(--emphasis-color);
   background: var(--basic-color);
+  font-family: ${(props) => sizes[props.size].font};
   :active {
     background: var(--emphasis-color);
     color: var(--basic-color);
