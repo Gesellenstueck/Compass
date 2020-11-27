@@ -8,6 +8,19 @@ const GlobalStyles = createGlobalStyle`
   box-sizing:border-box;
   }
   :root{
+    --background-primary: #FFF4F2;
+    --background-secondary: #FF9192;
+
+    --text-background: #002FD6;
+    --text-card: #FFFFFF;
+
+    //card colors
+    --card-pink: #FF9192;
+    --card-rose: #FECDC5;
+    --card-yellow: #FFE591;
+    --card-orange: #FFC057;
+
+
 
   }
 
@@ -26,7 +39,7 @@ html {
   body {
     padding:0;
       margin:0;
-  
+  background: var(--background-primary)
   }
 
 h1, h2, h3, h4 {
