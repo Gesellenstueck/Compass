@@ -1,33 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./button.css";
+import styled from "styled-components";
+
+const sizes = {
+  small: {
+    width: "30vw",
+    height: "1rem",
+  },
+  medium: {},
+  large: {
+    width: "40vw",
+    height: "2rem",
+  },
+};
+
+const SubmitButton = styled.button`
+  border-radius: 1.875rem;
+  text-transform: uppercase;
+  color: var(--emphasis-color);
+  background: var(--basic-color);
+  :active {
+    background: var(--emphasis-color);
+    color: var(--basic-color);
+  }
+  width: ${(props) => sizes[props.size].width};
+  height: ${(props) => sizes[props.size].height};
+`;
 
 /**
  * Primary UI component for user interaction
  */
-const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
-  return (
-    <button
-      type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
-  );
+const Button = ({ backgroundColor, size, label, ...props }) => {
+  return <SubmitButton size={size}>{label}</SubmitButton>;
 };
 
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
   /**
    * What background color to use
    */
