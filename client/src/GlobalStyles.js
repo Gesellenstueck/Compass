@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-//hier auch Google-Fonts Import
+
 import OxygenBold from "./assets/fonts/Oxygen-Bold.ttf";
 import OxygenRegular from "./assets/fonts/Oxygen-Regular.ttf";
 
@@ -11,8 +11,9 @@ const GlobalStyles = createGlobalStyle`
     --background-primary: #FFF4F2;
     --background-secondary: #FF9192;
 
-    --text-background: #002FD6;
-    --text-card: #FFFFFF;
+    --emphasis-color: #002FD6;
+
+    --basic-color: #FFFFFF;
 
     //card colors
     --card-pink: #FF9192;
@@ -28,12 +29,9 @@ const GlobalStyles = createGlobalStyle`
       height: 100vw;
     }
 
+
 html {
-  @font-face {
-    font-family: "Oxygen-Regular";
-    src: url(${OxygenRegular}) format("truetype");
-    
-  }
+
   font-family:"Oxygen-Regular";
   font-size:16px;   
  
@@ -47,11 +45,6 @@ html {
   }
 
 h1, h2, h3, h4 {
-  @font-face {
-    font-family: "Oxygen-Bold";
-    src: url(${OxygenBold}) format("truetype");
-    
-  }
   font-family:"Oxygen-Bold";
   
 }
@@ -59,6 +52,9 @@ h1, h2, h3, h4 {
 button {
   outline: none;
   cursor: pointer;  
+  border:none;
+  font-family:"Oxygen-Bold"
+  
 }
 
 a {
