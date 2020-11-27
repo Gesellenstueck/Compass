@@ -12,16 +12,24 @@ const GlobalStyles = createGlobalStyle`
   }
 html {
 
-}
-  body {
-      padding:0;
-      margin:0;
-      @font-face {
+  @font-face {
     font-family: "Oxygen-Regular";
     src: url(${OxygenRegular}) format("truetype");
     
   }
-  font-family:"Oxygen-Regular"
+  font-family:"Oxygen-Regular";
+  font-size:16px;
+
+  
+
+      
+     
+
+}
+  body {
+    padding:0;
+      margin:0;
+  
   }
 
 
