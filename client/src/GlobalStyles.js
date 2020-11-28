@@ -31,11 +31,11 @@ const GlobalStyles = createGlobalStyle`
 
     html {
       @font-face {
-        font-family: "Oxygen-Regular";
+        font-family: "OxygenRegular";
         src: url(${OxygenRegular}) format("truetype");
         
       } 
-      font-family:"Oxygen-Regular";
+      font-family:"OxygenRegular";
       font-size:16px;   
       
     }
@@ -49,10 +49,10 @@ const GlobalStyles = createGlobalStyle`
     
     h1, h2, h3, h4 {
       @font-face {
-         font-family: "Oxygen-Bold";
+         font-family: "OxygenBold";
          src: url(${OxygenBold}) format("truetype");
          
-         font-family:"Oxygen-Bold";
+         font-family:"OxygenBold";
        }  
   
 }
@@ -61,7 +61,7 @@ button {
   outline: none;
   cursor: pointer;  
   border:none;
-  font-family:"Oxygen-Bold";
+  font-family:"OxygenBold";
   font-size:1.25rem;
   
 }
