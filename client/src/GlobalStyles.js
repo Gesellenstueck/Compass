@@ -11,8 +11,9 @@ const GlobalStyles = createGlobalStyle`
     --background-primary: #FFF4F2;
     --background-secondary: #FF9192;
 
-    --text-background: #002FD6;
-    --text-card: #FFFFFF;
+    --emphasis-color: #002FD6;
+
+    --basic-color: #FFFFFF;
 
     //card colors
     --card-pink: #FF9192;
@@ -28,37 +29,41 @@ const GlobalStyles = createGlobalStyle`
       height: 100vw;
     }
 
-html {
-  @font-face {
-    font-family: "Oxygen-Regular";
-    src: url(${OxygenRegular}) format("truetype");
+    html {
+      @font-face {
+        font-family: "OxygenRegular";
+        src: url(${OxygenRegular}) format("truetype");
+        
+      } 
+      font-family:"OxygenRegular";
+      font-size:16px;   
+      
+    }
     
-  }
-  font-family:"Oxygen-Regular";
-  font-size:16px;   
- 
-     }
-
-
-  body {
-    padding:0;
+    
+    body {
+      padding:0;
       margin:0;
-  background: var(--background-primary)
-  }
-
-h1, h2, h3, h4 {
-  @font-face {
-    font-family: "Oxygen-Bold";
-    src: url(${OxygenBold}) format("truetype");
+      background: var(--background-primary)
+    }
     
-  }
-  font-family:"Oxygen-Bold";
+    h1, h2, h3, h4 {
+      @font-face {
+         font-family: "OxygenBold";
+         src: url(${OxygenBold}) format("truetype");
+         
+         font-family:"OxygenBold";
+       }  
   
 }
 
 button {
   outline: none;
   cursor: pointer;  
+  border:none;
+  font-family:"OxygenBold";
+  font-size:1.25rem;
+  
 }
 
 a {
