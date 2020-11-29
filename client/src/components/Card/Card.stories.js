@@ -15,5 +15,5 @@ const Template = (args) => <Card {...args} />;
 export const Large = Template.bind({});
 Large.args = {
   size: "large",
-  label: "Button",
+  label: "Card",
 };

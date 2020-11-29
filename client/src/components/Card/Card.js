@@ -2,39 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const sizes = {
-  small: {
-    width: "30vw",
-    height: "1rem",
-    font: "Oxygen-Regular",
-  },
-  medium: {},
-  large: {
-    width: "40vw",
-    height: "2rem",
-    font: "Oxygen-Bold",
-  },
-};
-
 const BoardCard = styled.div`
   border-radius: 1.875rem;
   text-transform: uppercase;
   color: var(--emphasis-color);
   background: var(--basic-color);
-  font-family: ${(props) => sizes[props.size].font};
+
   :active {
     background: var(--emphasis-color);
     color: var(--basic-color);
   }
-  width: ${(props) => sizes[props.size].width};
-  height: ${(props) => sizes[props.size].height};
 `;
 
 /**
  * Primary UI component for user interaction
  */
 const Card = ({ backgroundColor, size, label, ...props }) => {
-  return <BoardCard size={size}>{label}</BoardCard>;
+  return (
+    <BoardCard backgroundColor={backgroundColor}>
+      {label}
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua.{" "}
+      </p>
+    </BoardCard>
+  );
 };
 
 Card.propTypes = {
