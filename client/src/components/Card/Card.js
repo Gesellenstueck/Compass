@@ -2,11 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+const backgroundColors = {
+  pink: {
+    background: "var(--card-pink)",
+  },
+};
+
 const BoardCard = styled.div`
   border-radius: 1.875rem;
   text-transform: uppercase;
   color: var(--emphasis-color);
-  background: var(--basic-color);
+  background: ${(props) => backgroundColors[props.backgroundColor].background};
+  text-align: center;
 
   :active {
     background: var(--emphasis-color);
@@ -16,6 +23,7 @@ const BoardCard = styled.div`
 
 /**
  * Primary UI component for user interaction
+ *
  */
 const Card = ({ backgroundColor, size, label, ...props }) => {
   return (

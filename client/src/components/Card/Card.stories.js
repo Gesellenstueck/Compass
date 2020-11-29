@@ -12,8 +12,9 @@ export default {
 
 const Template = (args) => <Card {...args} />;
 
-export const Large = Template.bind({});
-Large.args = {
+export const Pink = Template.bind({});
+Pink.args = {
   size: "large",
   label: "Card",
+  backgroundColor: "pink",
 };
