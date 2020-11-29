@@ -44,9 +44,9 @@ const Card = ({ backgroundColor, size, label, ...props }) => {
 
 Card.propTypes = {
   /**
-   * What background color to use
+   * Hier die Auflistung der Farben, damit Storybook nicht abfuckt
    */
-  backgroundColor: PropTypes.string,
+  backgroundColor: PropTypes.oneOf(["pink", "medium", "large"]),
   /**
    * How large should the button be?
    */
