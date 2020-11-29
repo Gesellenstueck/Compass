@@ -1,16 +1,16 @@
 import React from "react";
 
-import Button from "./Button";
+import Card from "./Card";
 
 export default {
-  title: "Example/Button",
-  component: Button,
+  title: "Example/Card",
+  component: Card,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Card {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

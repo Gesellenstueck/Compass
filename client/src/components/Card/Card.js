@@ -16,7 +16,7 @@ const sizes = {
   },
 };
 
-const SubmitButton = styled.button`
+const BoardCard = styled.div`
   border-radius: 1.875rem;
   text-transform: uppercase;
   color: var(--emphasis-color);
@@ -33,11 +33,11 @@ const SubmitButton = styled.button`
 /**
  * Primary UI component for user interaction
  */
-const Button = ({ backgroundColor, size, label, ...props }) => {
-  return <SubmitButton size={size}>{label}</SubmitButton>;
+const Card = ({ backgroundColor, size, label, ...props }) => {
+  return <BoardCard size={size}>{label}</BoardCard>;
 };
 
-Button.propTypes = {
+Card.propTypes = {
   /**
    * What background color to use
    */
@@ -56,11 +56,11 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-Button.defaultProps = {
+BoardCard.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: "medium",
   onClick: undefined,
 };
 
-export default Button;
+export default Card;
