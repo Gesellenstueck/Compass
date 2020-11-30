@@ -4,13 +4,24 @@ import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
 
 const Wrapper = styled.div`
+  display: flex;
   background-image: url(${bgImg});
   height: 100vh;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const LoginContainer = styled.div`
-  display: grid;
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  background-color: var(--card-pink);
+  display: flex;
+  justify-content: center;
+  > :nth-child(2) {
+    margin-bottom: 1rem;
+  }
 `;
 
 function Login() {
