@@ -1,22 +1,17 @@
-import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const sizes = {
   small: {
-    width: "30vw",
-    height: "1rem",
     font: "Oxygen-Regular",
   },
   medium: {},
   large: {
-    width: "40vw",
-    height: "2rem",
     font: "Oxygen-Bold",
   },
 };
 
-const SubmitButton = styled.button`
+const Button = styled.button`
   border-radius: 1.875rem;
   letter-spacing: 0.07rem;
   text-transform: uppercase;
@@ -34,9 +29,6 @@ const SubmitButton = styled.button`
 /**
  * Primary UI component for user interaction
  */
-const Button = ({ backgroundColor, size, label, ...props }) => {
-  return <SubmitButton size={size}>{label}</SubmitButton>;
-};
 
 Button.propTypes = {
   /**
@@ -50,7 +42,7 @@ Button.propTypes = {
   /**
    * Button contents
    */
-  label: PropTypes.string.isRequired,
+
   /**
    * Optional click handler
    */
@@ -58,10 +50,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
   size: "medium",
-  onClick: undefined,
 };
 
 export default Button;
