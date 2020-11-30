@@ -27,7 +27,7 @@ function App() {
             </li>
           </ul>
           <a href="/storybook">To Storybook</a>
-          <Button size="large" label="Hallo"></Button>
+          <Button size="large">Hallo</Button>
 
           <Switch>
             <Route exact path="/survey">
