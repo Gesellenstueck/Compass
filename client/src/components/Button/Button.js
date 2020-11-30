@@ -18,6 +18,7 @@ const sizes = {
 
 const SubmitButton = styled.button`
   border-radius: 1.875rem;
+  letter-spacing: 0.07rem;
   text-transform: uppercase;
   color: var(--emphasis-color);
   background: var(--basic-color);
