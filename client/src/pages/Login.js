@@ -16,11 +16,16 @@ const LoginContainer = styled.div`
   width: 200px;
   height: 200px;
   padding: 20px;
-  background-color: var(--card-pink);
+  border-radius: 20px;
+  background-color: rgba(255, 145, 146, 0.75);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   > :nth-child(2) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  > :nth-child(odd) {
+    margin-bottom: 0.5rem;
   }
 `;
 
