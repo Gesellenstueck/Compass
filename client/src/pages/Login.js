@@ -4,8 +4,8 @@ function Login() {
   return (
     <>
       <h2>Login</h2>
-      <p>tbd. </p>
-      <Input />
+      <Input placeholder="E-mail address" />
+      <Input placeholder="Password" />
     </>
   );
 }
