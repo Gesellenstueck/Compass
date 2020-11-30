@@ -6,6 +6,15 @@ const backgroundColors = {
   pink: {
     background: "var(--card-pink)",
   },
+  yellow: {
+    background: "var(--card-yellow)",
+  },
+  orange: {
+    background: "var(--card-orange)",
+  },
+  rose: {
+    background: "var(--card-rose)",
+  },
 };
 
 const BoardCard = styled.div`
