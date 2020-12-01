@@ -36,7 +36,8 @@ const GlobalStyles = createGlobalStyle`
         
       } 
       font-family:"OxygenRegular";
-      font-size:16px;   
+      font-size:1rem;   
+      color: white;
       
     }
     
@@ -51,11 +52,14 @@ const GlobalStyles = createGlobalStyle`
       @font-face {
          font-family: "OxygenBold";
          src: url(${OxygenBold}) format("truetype");
-         
          font-family:"OxygenBold";
        }  
-  
 }
+         h1 {letter-spacing: 0.2rem;
+         font-size: 2.5rem;
+         }
+
+
 
 button {
   outline: none;
