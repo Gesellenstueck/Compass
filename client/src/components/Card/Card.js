@@ -9,7 +9,7 @@ const types = {
   yellow: {
     background: "var(--card-yellow)",
   },
-  orange: {
+  addBoard: {
     background: "var(--card-orange)",
   },
   privateBoard: {
@@ -41,30 +41,30 @@ const BoardCard = styled.div`
   }
 `;
 
-const Card = ({ type, size, label, imgSrc, alt, ...props }) => {
+const Card = ({ type, label, imgSrc, alt, subline, ...props }) => {
   return (
     <BoardCard type={type}>
       <h2>{label}</h2>
 
       <img src={imgSrc} alt={alt} />
 
-      <h4>Marie Groß, Lucas Naas...</h4>
+      <h4>{subline}</h4>
     </BoardCard>
   );
 };
 
 Card.propTypes = {
-  type: PropTypes.oneOf(["teamBoard", "medium", "large"]),
+  type: PropTypes.oneOf(["teamBoard", "privateBoard", "addBoard"]),
 
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 
   onClick: PropTypes.func,
 
   imgSrc: PropTypes.string,
 
   alt: PropTypes.string,
+
+  subline: PropTypes.string,
 };
 
 BoardCard.defaultProps = {
