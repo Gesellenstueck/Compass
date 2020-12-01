@@ -37,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
       } 
       font-family:"OxygenRegular";
       font-size:1rem;   
-      color: white;
+      color: var(--basic-color);
       
     }
     
