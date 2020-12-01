@@ -1,5 +1,4 @@
 import GlobalStyles from "./GlobalStyles";
-import Button from "./components/Button/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
