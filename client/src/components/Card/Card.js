@@ -22,34 +22,32 @@ const types = {
 
 const BoardCard = styled.div`
   border-radius: 1.875rem;
-  text-transform: uppercase;
+  padding: 5%;
 
+  display: grid;
+  grid-template-columns: auto 5% 1fr;
+  grid-template-rows: auto 1fr;
   background: ${(props) => types[props.type].background};
-  text-align: center;
+
   svg {
-    height: 20px;
-    width: 20px;
+    align-self: center;
+    grid-column-start: 3;
   }
+  h4 {
+    grid-column: span 3;
+    grid-row-start: 2;
+    align-self: end;
+  }
+  //test
 `;
 
-/**
- * Primary UI component for user interaction
- *
- */
 const Card = ({ type, size, label, ...props }) => {
   return (
     <BoardCard type={type}>
-      {label}
+      <h2>{label}</h2>
       <Teamicon />
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua.{" "}
-      </p>
+
+      <h4>Marie Groß, Lucas Naas...</h4>
     </BoardCard>
   );
 };
