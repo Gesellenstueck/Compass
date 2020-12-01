@@ -1,5 +1,4 @@
 import GlobalStyles from "./GlobalStyles";
-import Button from "./components/Button/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
@@ -12,7 +11,7 @@ function App() {
       <GlobalStyles />
       <Router>
         <div className="App">
-          <ul>
+          {/* <ul>
             <li>
               <Link to="/survey">Survey</Link>
             </li>
@@ -27,7 +26,7 @@ function App() {
             </li>
           </ul>
           <a href="/storybook">To Storybook</a>
-          <Button size="large">Hallo</Button>
+          <Button size="large">Hallo</Button> */}
 
           <Switch>
             <Route exact path="/survey">

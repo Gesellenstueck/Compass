@@ -17,13 +17,12 @@ const Button = styled.button`
   text-transform: uppercase;
   color: var(--emphasis-color);
   background: var(--basic-color);
+  padding: 0.4rem 0;
   font-family: ${(props) => sizes[props.size].font};
   :active {
     background: var(--emphasis-color);
     color: var(--basic-color);
   }
-  width: ${(props) => sizes[props.size].width};
-  height: ${(props) => sizes[props.size].height};
 `;
 
 /**

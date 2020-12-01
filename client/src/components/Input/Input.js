@@ -10,9 +10,9 @@ const Input = styled.input`
   background: var(--basic-color);
   border: none;
   ::placeholder {
-    color: var(--emphasis-color);
+    color: rgba(0, 47, 214, 0.7);
   }
-  padding: 0.3rem 0 0.3rem 1rem;
+  padding: 0.4rem 0 0.4rem 1.2rem;
 `;
 
 export default Input;
