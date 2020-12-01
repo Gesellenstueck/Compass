@@ -5,7 +5,7 @@ function Dashboard() {
     <>
       <h2>Login</h2>
       <p>tbd. </p>
-      <Card type="teamBoard" label="Hallo" />
+      <Card type="teamBoard" label="Team Board" />
     </>
   );
 }
