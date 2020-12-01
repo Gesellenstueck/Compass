@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { ReactComponent as Teamicon } from "../../assets/icons/Team.svg";
 
-const backgroundColors = {
-  pink: {
+const types = {
+  teamBoard: {
     background: "var(--card-pink)",
+    headline: "Team Board",
+    icon: "teamicon",
   },
   yellow: {
     background: "var(--card-yellow)",
@@ -20,13 +23,12 @@ const backgroundColors = {
 const BoardCard = styled.div`
   border-radius: 1.875rem;
   text-transform: uppercase;
-  color: var(--emphasis-color);
-  background: ${(props) => backgroundColors[props.backgroundColor].background};
-  text-align: center;
 
-  :active {
-    background: var(--emphasis-color);
-    color: var(--basic-color);
+  background: ${(props) => types[props.type].background};
+  text-align: center;
+  svg {
+    height: 20px;
+    width: 20px;
   }
 `;
 
@@ -34,10 +36,11 @@ const BoardCard = styled.div`
  * Primary UI component for user interaction
  *
  */
-const Card = ({ backgroundColor, size, label, ...props }) => {
+const Card = ({ type, size, label, ...props }) => {
   return (
-    <BoardCard backgroundColor={backgroundColor}>
+    <BoardCard type={type}>
       {label}
+      <Teamicon />
       <p>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -55,7 +58,7 @@ Card.propTypes = {
   /**
    * Hier die Auflistung der Farben, damit Storybook nicht abfuckt
    */
-  backgroundColor: PropTypes.oneOf(["pink", "medium", "large"]),
+  type: PropTypes.oneOf(["teamBoard", "medium", "large"]),
   /**
    * How large should the button be?
    */
