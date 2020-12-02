@@ -36,8 +36,13 @@ const GlobalStyles = createGlobalStyle`
         
       } 
       font-family:"OxygenRegular";
-      font-size:1rem;   
+      font-size:4vw;   
+      @media screen and (min-width: 768px){
+        font-size: 30px;
+      }
       color: var(--basic-color);
+
+      
       
     }
     
@@ -55,8 +60,8 @@ const GlobalStyles = createGlobalStyle`
          font-family:"OxygenBold";
        }  
 }
-         h1 {letter-spacing: 0.2rem;
-         font-size: 2.5rem;
+         h1, h3 {letter-spacing: 0.2rem;
+        
          }
 
 

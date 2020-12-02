@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Input from "../components/Input/Input";
 import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
