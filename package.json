@@ -16,7 +16,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
     "server": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "api": "json-server --watch db.json --port 5000"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "json-server": "^0.16.3"
   }
 }
