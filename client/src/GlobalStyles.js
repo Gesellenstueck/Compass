@@ -60,8 +60,8 @@ const GlobalStyles = createGlobalStyle`
          font-family:"OxygenBold";
        }  
 }
-         h1 {letter-spacing: 0.2rem;
-         font-size: 2.5rem;
+         h1, h3 {letter-spacing: 0.2rem;
+        
          }
 
 

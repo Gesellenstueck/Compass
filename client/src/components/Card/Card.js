@@ -32,7 +32,7 @@ const BoardCard = styled.div`
   img {
     align-self: center;
     grid-column-start: 3;
-    max-width: 42px;
+    max-width: 44px;
     max-height: 44px;
   }
   h4 {
