@@ -6,7 +6,7 @@ import Addicon from "../assets/icons/Add.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 
 const Wrapper = styled.div`
-  padding: 2rem;
+  padding: 2rem 0 2rem 2rem;
   h1,
   p {
     color: var(--emphasis-color);
@@ -19,10 +19,11 @@ const Wrapper = styled.div`
 `;
 
 const CardContainer = styled.div`
-  overflow: auto;
+  padding: 1rem 0 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5rem;
+  overflow: auto;
 
   div {
     min-width: 16rem;
@@ -39,20 +40,20 @@ function Dashboard() {
 
       <CardContainer>
         <Card
-          type="teamBoard"
+          bgColor="primaryDark"
           label="Team Board"
           imgSrc={Teamicon}
-          alt="Team Icon"
+          alt="Lock Icon"
           subline="Marie Groß, Lucas Naas..."
         />
         <Card
-          type="privateBoard"
+          bgColor="primaryLight"
           label="Private Board"
           imgSrc={Lockicon}
           alt="Lock Icon"
           subline="Marie Groß, Lucas Naas..."
         />
-        <Card type="addBoard" imgSrc={Addicon} alt="Plus Icon" />
+        <Card bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
       </CardContainer>
     </Wrapper>
   );

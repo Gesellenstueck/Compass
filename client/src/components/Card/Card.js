@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 
-const types = {
-  teamBoard: {
-    background: "var(--card-pink)",
-  },
-  yellow: {
-    background: "var(--card-yellow)",
-  },
-  addBoard: {
-    background: "var(--card-orange)",
-  },
-  privateBoard: {
-    background: "var(--card-rose)",
-  },
+const bgColors = {
+  primaryDark: css`
+    background: var(--card-pink);
+  `,
+
+  secondaryLight: css`
+    background: var(--card-yellow);
+  `,
+  secondaryDark: css`
+    background: var(--card-orange);
+  `,
+  primaryLight: css`
+    background: var(--card-rose);
+  `,
 };
 
 const BoardCard = styled.div`
@@ -26,7 +27,7 @@ const BoardCard = styled.div`
   display: grid;
   grid-template-columns: auto 5% 1fr;
   grid-template-rows: auto 1fr;
-  background: ${(props) => types[props.type].background};
+  ${(props) => bgColors[props.bgColor]};
 
   img {
     align-self: center;
@@ -41,9 +42,9 @@ const BoardCard = styled.div`
   }
 `;
 
-const Card = ({ type, label, imgSrc, alt, subline, ...props }) => {
+const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
   return (
-    <BoardCard type={type}>
+    <BoardCard bgColor={bgColor}>
       <h2>{label}</h2>
 
       <img src={imgSrc} alt={alt} />
@@ -54,7 +55,12 @@ const Card = ({ type, label, imgSrc, alt, subline, ...props }) => {
 };
 
 Card.propTypes = {
-  type: PropTypes.oneOf(["teamBoard", "privateBoard", "addBoard"]),
+  bgColor: PropTypes.oneOf([
+    "primaryDark",
+    "secondaryDark",
+    "primaryLight",
+    "secondaryLight",
+  ]),
 
   label: PropTypes.string,
 
@@ -65,6 +71,8 @@ Card.propTypes = {
   alt: PropTypes.string,
 
   subline: PropTypes.string,
+
+  iconProps: PropTypes.oneOf(["teamIcon"]),
 };
 
 BoardCard.defaultProps = {
