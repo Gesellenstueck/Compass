@@ -39,6 +39,10 @@ const BoardCard = styled.div`
     grid-column: span 3;
     grid-row-start: 2;
     align-self: end;
+    margin: 1.5rem 0 0 0;
+  }
+  h2 {
+    margin: 0;
   }
 `;
 

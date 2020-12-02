@@ -9,26 +9,36 @@ import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 
 const Wrapper = styled.div`
-  padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 0 1.5rem;
   h1,
   h3,
   p {
     color: var(--emphasis-color);
+    margin: 0.3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
   }
 
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-rows: 56px auto 1fr;
+  grid-template-rows: repeat(8, auto);
   grid-column-gap: 1.5rem;
 `;
 
 const CardContainer = styled.div`
-  padding: 1rem 0 2rem;
+  /* padding: 1rem 0 2rem; */
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1.5rem;
+  grid-column-gap: 1.5rem;
   overflow: auto;
+  padding-bottom: 2rem;
 
   div {
     min-width: 16rem;
@@ -36,14 +46,30 @@ const CardContainer = styled.div`
     grid-row-start: 2;
   }
 `;
+const SingleCardContainer = styled.div`
+  /* padding: 1rem 0 2rem; */
+  display: grid;
+  overflow: auto;
+  padding-bottom: 2rem;
+  div {
+    min-width: 16rem;
+    max-width: 30rem;
+    grid-row-start: 2;
+  }
+`;
+
+const HeaderContainer = styled.div`
+  margin: 1rem 0 2rem;
+`;
 
 function Dashboard() {
   return (
     <Wrapper>
       <MenuIcon />
-      <h1>Hello User,</h1>
-      <p>how are you doing today? </p>
-
+      <HeaderContainer>
+        <h1>Hello User,</h1>
+        <p>how are you doing today? </p>
+      </HeaderContainer>
       <h3>Your Boards</h3>
       <CardContainer>
         <Card
@@ -85,13 +111,15 @@ function Dashboard() {
         />
       </CardContainer>
       <h3>Challenge of the week</h3>
-      <Card
-        bgColor="primaryLight"
-        label="Making new friends"
-        imgSrc={Chat}
-        alt="Chat bubble"
-        subline="Start a conservation with someone you don't speak to very often."
-      />
+      <SingleCardContainer>
+        <Card
+          bgColor="primaryLight"
+          label="Making new friends"
+          imgSrc={Chat}
+          alt="Chat bubble"
+          subline="Start a conservation with someone you don't speak to very often."
+        />
+      </SingleCardContainer>
     </Wrapper>
   );
 }
