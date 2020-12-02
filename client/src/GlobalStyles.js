@@ -36,8 +36,13 @@ const GlobalStyles = createGlobalStyle`
         
       } 
       font-family:"OxygenRegular";
-      font-size:1rem;   
+      font-size:4vw;   
+      @media screen and (min-width: 768px){
+        font-size: 30px;
+      }
       color: var(--basic-color);
+
+      
       
     }
     
