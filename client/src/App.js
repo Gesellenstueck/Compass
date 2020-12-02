@@ -4,10 +4,24 @@ import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import { I18nContext } from "./contexts/i18n";
+import { useState } from "react";
+
+const localDicts = {
+  de: {
+    welcome: "Guten Tag User",
+    views: "Ansichten",
+  },
+  en: {
+    welcome: "Hello User",
+    views: "Views",
+  },
+};
 
 function App() {
+  const [dict, setDict] = useState(localDicts.de);
   return (
-    <>
+    <I18nContext.Provider value={dict}>
       <GlobalStyles />
       <Router>
         <div className="App">
@@ -27,6 +41,10 @@ function App() {
           </ul>
           <a href="/storybook">To Storybook</a>
           <Button size="large">Hallo</Button> */}
+          <select onChange={(event) => setDict(localDicts[event.target.value])}>
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+          </select>
 
           <Switch>
             <Route exact path="/survey">
@@ -44,7 +62,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </>
+    </I18nContext.Provider>
   );
 }
 
