@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import Input from "../components/Input/Input";
 import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,7 +40,11 @@ function Login() {
       <LoginContainer>
         <Input placeholder="E-mail" />
         <Input placeholder="Password" />
-        <Button size="large">Login</Button>
+
+        <Button size="large">
+          <Link to="/dashboard">Login</Link>
+        </Button>
+
         <Button size="large">Sign up</Button>
       </LoginContainer>
     </Wrapper>
