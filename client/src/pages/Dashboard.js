@@ -39,22 +39,27 @@ const CardContainer = styled.div`
   }
 `;
 
+function displayName() {
+  let name = localStorage.getItem("name");
+  return name;
+}
+
 function Dashboard() {
   const [username, setUsername] = useState("User");
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const doFetch = async () => {
       const user = await getUserById(1);
       console.log(user.title);
       setUsername(user.title);
     };
     doFetch();
-  }, []);
+  }, []); */
 
   return (
     <Wrapper>
       <MenuIcon />
-      <h1>Hello {username} </h1>
+      <h1>Hello {displayName()}, </h1>
 
       <p>how are you doing today? </p>
 
