@@ -3,6 +3,8 @@ import Input from "../components/Input/Input";
 import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { postUser } from "../api/users";
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,17 +36,34 @@ const LoginContainer = styled.div`
 `;
 
 function Login() {
+  const [name, setName] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    await postUser({
+      name,
+    });
+  };
+
   return (
     <Wrapper>
       <h1>WELCOME</h1>
       <LoginContainer>
-        <Input placeholder="Name" />
+        <form onSubmit={handleSubmit}>
+          <Input
+            placeholder="Name"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <input type="submit" value="Submit" />
+        </form>
         <Input placeholder="Password" />
 
         <Button size="large">
           <Link to="/dashboard">Login</Link>
         </Button>
-
         <Button size="large">Sign up</Button>
       </LoginContainer>
     </Wrapper>
