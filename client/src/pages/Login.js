@@ -38,7 +38,7 @@ function Login() {
     <Wrapper>
       <h1>WELCOME</h1>
       <LoginContainer>
-        <Input placeholder="E-mail" />
+        <Input placeholder="Name" />
         <Input placeholder="Password" />
 
         <Button size="large">
