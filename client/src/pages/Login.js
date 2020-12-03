@@ -36,13 +36,17 @@ const LoginContainer = styled.form`
   }
 `;
 
+function setLS(name) {
+  localStorage.setItem("name", name);
+}
+
 function Login() {
   const [name, setName] = useState("");
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setLS(name);
     await postUser({
       name,
     });
