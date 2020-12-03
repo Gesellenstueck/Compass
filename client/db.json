@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "title": "Marie",
+      "survey": ["Socken", "Koks"]
+    }
+  ]
+}
