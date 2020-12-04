@@ -2,6 +2,10 @@ import styled from "styled-components/macro";
 import Input from "../components/Input/Input";
 import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
+import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { postUser } from "../api/users";
+import InputBtn from "../components/Input/InputBtn";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,7 +19,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const LoginContainer = styled.div`
+const LoginContainer = styled.form`
   width: 19rem;
   height: 20rem;
   padding: 2rem;
@@ -32,14 +36,38 @@ const LoginContainer = styled.div`
   }
 `;
 
+function setLS(name) {
+  localStorage.setItem("name", name);
+}
+
 function Login() {
+  const [name, setName] = useState("");
+  const history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLS(name);
+    await postUser({
+      name,
+    });
+    history.push(`/dashboard`);
+  };
+
   return (
     <Wrapper>
       <h1>WELCOME</h1>
-      <LoginContainer>
-        <Input placeholder="E-mail" />
+
+      <LoginContainer onSubmit={handleSubmit}>
+        <Input
+          placeholder="Name"
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
         <Input placeholder="Password" />
-        <Button size="large">Login</Button>
+
+        <InputBtn type="submit" value="Submit" />
+
         <Button size="large">Sign up</Button>
       </LoginContainer>
     </Wrapper>

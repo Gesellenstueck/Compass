@@ -7,6 +7,8 @@ import Surveyicon from "../assets/icons/Smiley.svg";
 import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
+import { getUserById, getUsers } from "../api/users";
+import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   padding: 2rem 0 0 1.5rem;
@@ -62,14 +64,32 @@ const HeaderContainer = styled.div`
   margin: 1rem 0 2rem;
 `;
 
+function displayName() {
+  let name = localStorage.getItem("name");
+  return name;
+}
+
 function Dashboard() {
+  const [username, setUsername] = useState("User");
+
+  /*  useEffect(() => {
+    const doFetch = async () => {
+      const user = await getUserById(1);
+      console.log(user.title);
+      setUsername(user.title);
+    };
+    doFetch();
+  }, []); */
+
   return (
     <Wrapper>
       <MenuIcon />
+
       <HeaderContainer>
         <h1>Hello User,</h1>
         <p>how are you doing today? </p>
       </HeaderContainer>
+
       <h3>Your Boards</h3>
       <CardContainer>
         <Card
