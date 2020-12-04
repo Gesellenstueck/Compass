@@ -66,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
 
 
 
-button {
+button, input  {
   outline: none;
   cursor: pointer;  
   border:none;
@@ -74,6 +74,7 @@ button {
   font-size:1.25rem;
   
 }
+
 
 a {
   text-decoration: none;
