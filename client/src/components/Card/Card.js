@@ -46,7 +46,7 @@ const BoardCard = styled.div`
   }
 `;
 
-const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
+const Card = ({ bgColor, label, imgSrc, alt, subline }) => {
   return (
     <BoardCard bgColor={bgColor}>
       <h3>{label}</h3>

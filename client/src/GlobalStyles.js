@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-//hier auch Google-Fonts Import
-import OxygenBold from "./assets/fonts/Oxygen-Bold.ttf";
+
 import OxygenRegular from "./assets/fonts/Oxygen-Regular.ttf";
 
 const GlobalStyles = createGlobalStyle`
