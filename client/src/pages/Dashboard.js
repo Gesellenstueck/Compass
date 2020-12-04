@@ -109,6 +109,7 @@ function Dashboard() {
           imgSrc={Surveyicon}
           alt="Smiley"
           subline="Completed by 7/11"
+          onClick={() => history.push("/survey")}
         />
         <Card
           bgColor="primaryDark"
