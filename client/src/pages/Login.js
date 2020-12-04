@@ -17,6 +17,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  h1 {
+    color: var(--basic-color);
+  }
 `;
 
 const LoginContainer = styled.form`

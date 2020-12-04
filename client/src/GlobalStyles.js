@@ -54,10 +54,11 @@ h1, h2, h3, h4, h5 {
   }
   h1 {
   color: var(--emphasis-color);
+  margin-left: 2rem;
   }
 h2 {
   font-size: 1.6rem;
-   margin-bottom: 1rem;
+   margin: 0 0 1rem 2rem;
    color: var(--emphasis-color);
  }
 h3 {
@@ -68,6 +69,7 @@ h3 {
 h4 {
   font-size: 1.2rem;
   color: var(--emphasis-color);
+  margin-left: 2rem;
 }
 
 span {

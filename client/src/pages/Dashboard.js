@@ -7,25 +7,29 @@ import Surveyicon from "../assets/icons/Smiley.svg";
 import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
-import { getUserById, getUsers } from "../api/users";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 
 const Wrapper = styled.div`
-  padding: 2rem 0 0 1.5rem;
+  padding-top: 2rem;
 
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr; */
+
   grid-template-rows: repeat(8, auto);
   grid-column-gap: 1.5rem;
+
+  //refactoring soon
+  svg {
+    margin-left: 2rem;
+  }
 `;
 
-const CardContainer = styled.div`
-  /* padding: 1rem 0 2rem; */
+const SingleCardContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 1.5rem;
   overflow: auto;
-  padding-bottom: 2rem;
+  padding: 0 1.5rem 2rem;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 1.5rem;
 
   div {
     min-width: 16rem;
@@ -33,15 +37,14 @@ const CardContainer = styled.div`
     grid-row-start: 2;
   }
 `;
-const SingleCardContainer = styled.div`
-  /* padding: 1rem 0 2rem; */
-  display: grid;
-  overflow: auto;
-  padding-bottom: 2rem;
-  div {
-    min-width: 16rem;
-    max-width: 30rem;
-    grid-row-start: 2;
+const CardContainer = styled(SingleCardContainer)`
+  grid-template-columns: auto 1fr 1fr 1fr auto;
+  padding: 0 0 2rem 0;
+  div :last-child,
+  div :first-child {
+    width: 1px;
+    height: auto;
+    min-width: 0;
   }
 `;
 
@@ -77,6 +80,7 @@ function Dashboard() {
 
       <h2>Your Boards</h2>
       <CardContainer>
+        <div></div>
         <Card
           bgColor="primaryDark"
           label="Team Board"
@@ -84,6 +88,7 @@ function Dashboard() {
           alt="Lock Icon"
           subline="Marie Groß, Lucas Naas..."
         />
+
         <Card
           bgColor="primaryLight"
           label="Private Board"
@@ -92,9 +97,11 @@ function Dashboard() {
           subline="Marie Groß, Lucas Naas..."
         />
         <Card bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
+        <div></div>
       </CardContainer>
       <h2>Mood Survey</h2>
       <CardContainer>
+        <div></div>
         <Card
           bgColor="secondaryDark"
           label="This Week's Survey"
@@ -114,6 +121,7 @@ function Dashboard() {
           imgSrc={Surveyicon}
           alt=""
         />
+        <div></div>
       </CardContainer>
       <h2>Challenge of the week</h2>
       <SingleCardContainer>
