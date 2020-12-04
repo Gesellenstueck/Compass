@@ -12,21 +12,6 @@ import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   padding: 2rem 0 0 1.5rem;
-  h1,
-  h3,
-  p {
-    color: var(--emphasis-color);
-    margin: 0.3rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
 
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
@@ -64,10 +49,10 @@ const HeaderContainer = styled.div`
   margin: 1rem 0 2rem;
 `;
 
-function displayName() {
-  let name = localStorage.getItem("name");
+const displayName = () => {
+  const name = localStorage.getItem("name");
   return name;
-}
+};
 
 function Dashboard() {
   const [username, setUsername] = useState("User");
@@ -86,11 +71,11 @@ function Dashboard() {
       <MenuIcon />
 
       <HeaderContainer>
-        <h1>Hello User,</h1>
-        <p>how are you doing today? </p>
+        <h1>Hello {displayName()},</h1>
+        <h4>how are you doing today? </h4>
       </HeaderContainer>
 
-      <h3>Your Boards</h3>
+      <h2>Your Boards</h2>
       <CardContainer>
         <Card
           bgColor="primaryDark"
@@ -108,7 +93,7 @@ function Dashboard() {
         />
         <Card bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
       </CardContainer>
-      <h3>Mood Survey</h3>
+      <h2>Mood Survey</h2>
       <CardContainer>
         <Card
           bgColor="secondaryDark"
@@ -130,7 +115,7 @@ function Dashboard() {
           alt=""
         />
       </CardContainer>
-      <h3>Challenge of the week</h3>
+      <h2>Challenge of the week</h2>
       <SingleCardContainer>
         <Card
           bgColor="primaryLight"

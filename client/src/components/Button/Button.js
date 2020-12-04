@@ -25,26 +25,11 @@ const Button = styled.button`
   }
 `;
 
-/**
- * Primary UI component for user interaction
- */
-
 Button.propTypes = {
-  /**
-   * What background color to use
-   */
   backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  /**
-   * Button contents
-   */
 
-  /**
-   * Optional click handler
-   */
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+
   onClick: PropTypes.func,
 };
 
