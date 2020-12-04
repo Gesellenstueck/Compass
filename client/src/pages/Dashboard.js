@@ -8,8 +8,6 @@ import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 
-import { useState } from "react";
-
 const Wrapper = styled.div`
   padding-top: 2rem;
 
@@ -18,7 +16,6 @@ const Wrapper = styled.div`
   grid-template-rows: repeat(8, auto);
   grid-column-gap: 1.5rem;
 
-  //refactoring soon
   svg {
     margin-left: 2rem;
   }
@@ -58,7 +55,8 @@ const displayName = () => {
 };
 
 function Dashboard() {
-  const [username, setUsername] = useState("User");
+  //keep this code for mongoDB implementation
+  /* const [username, setUsername] = useState("User"); */
 
   /*  useEffect(() => {
     const doFetch = async () => {
