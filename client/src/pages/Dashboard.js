@@ -7,6 +7,7 @@ import Surveyicon from "../assets/icons/Smiley.svg";
 import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
@@ -66,6 +67,7 @@ function Dashboard() {
     };
     doFetch();
   }, []); */
+  const history = useHistory();
 
   return (
     <Wrapper>
@@ -85,6 +87,7 @@ function Dashboard() {
           imgSrc={Teamicon}
           alt="Lock Icon"
           subline="Marie Groß, Lucas Naas..."
+          onClick={() => history.push("/whiteboard")}
         />
 
         <Card
@@ -106,6 +109,7 @@ function Dashboard() {
           imgSrc={Surveyicon}
           alt="Smiley"
           subline="Completed by 7/11"
+          onClick={() => history.push("/survey")}
         />
         <Card
           bgColor="primaryDark"
