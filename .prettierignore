@@ -2,5 +2,4 @@
 build/
 coverage/ 
 storybook-static/
-./db.json/
 client/db.json
