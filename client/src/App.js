@@ -1,5 +1,5 @@
 import GlobalStyles from "./GlobalStyles";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
 import Login from "./pages/Login";

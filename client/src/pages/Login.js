@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import Input from "../components/Input/Input";
 import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { postUser } from "../api/users";
 import InputBtn from "../components/Input/InputBtn";
@@ -17,6 +17,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  h1 {
+    color: var(--basic-color);
+  }
 `;
 
 const LoginContainer = styled.form`

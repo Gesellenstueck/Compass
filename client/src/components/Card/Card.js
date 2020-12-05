@@ -4,17 +4,17 @@ import styled, { css } from "styled-components/macro";
 
 const bgColors = {
   primaryDark: css`
-    background: var(--card-pink);
+    background: var(--primaryDark);
   `,
 
   secondaryLight: css`
-    background: var(--card-yellow);
+    background: var(--secondaryLight);
   `,
   secondaryDark: css`
-    background: var(--card-orange);
+    background: var(--secondaryDark);
   `,
   primaryLight: css`
-    background: var(--card-rose);
+    background: var(--primaryLight);
   `,
 };
 
@@ -35,7 +35,7 @@ const BoardCard = styled.div`
     max-width: 44px;
     max-height: 44px;
   }
-  h4 {
+  span {
     grid-column: span 3;
     grid-row-start: 2;
     align-self: end;
@@ -46,14 +46,14 @@ const BoardCard = styled.div`
   }
 `;
 
-const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
+const Card = ({ bgColor, label, imgSrc, alt, subline }) => {
   return (
     <BoardCard bgColor={bgColor}>
-      <h2>{label}</h2>
+      <h3>{label}</h3>
 
       <img src={imgSrc} alt={alt} />
 
-      <h4>{subline}</h4>
+      <span>{subline}</span>
     </BoardCard>
   );
 };

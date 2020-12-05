@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-//hier auch Google-Fonts Import
-import OxygenBold from "./assets/fonts/Oxygen-Bold.ttf";
+
 import OxygenRegular from "./assets/fonts/Oxygen-Regular.ttf";
 
 const GlobalStyles = createGlobalStyle`
@@ -16,25 +15,20 @@ const GlobalStyles = createGlobalStyle`
     --basic-color: #FFFFFF;
 
     //card colors
-    --card-pink: #FF9192;
-    --card-rose: #FECDC5;
-    --card-yellow: #FFE591;
-    --card-orange: #FFC057;
+    --primaryDark: #FF9192;
+    --primaryLight: #FECDC5;
+    --secondaryLight: #FFE591;
+    --secondaryDark: #FFC057;
   }
 
-    #root{
-      display: grid;
-      //grid-settings here
-      height: 100vh;
-      height: 100vw;
-    }
+  
 
     html {
       @font-face {
         font-family: "OxygenRegular";
+        src: url(${OxygenRegular}) format("woff2");
         src: url(${OxygenRegular}) format("truetype");
-        
-      } 
+              } 
       font-family:"OxygenRegular";
       font-size:4vw;   
       @media screen and (min-width: 768px){
@@ -42,8 +36,7 @@ const GlobalStyles = createGlobalStyle`
       }
       color: var(--basic-color);
 
-      
-      
+           
     }
     
     
@@ -53,16 +46,36 @@ const GlobalStyles = createGlobalStyle`
       background: var(--background-primary)
     }
     
-    h1, h2, h3, h4 {
-      @font-face {
-         font-family: "OxygenBold";
-         src: url(${OxygenBold}) format("truetype");
-         font-family:"OxygenBold";
-       }  
+
+h1, h2, h3, h4, h5 {
+   margin: 0.3rem;
+  letter-spacing: 0.2rem;
+  }
+  h1 {
+  color: var(--emphasis-color);
+  margin-left: 2rem;
+  }
+h2 {
+  font-size: 1.6rem;
+   margin: 0 0 1rem 2rem;
+   color: var(--emphasis-color);
+ }
+h3 {
+  font-size: 1.4rem;
+  letter-spacing:0;
 }
-         h1, h3 {letter-spacing: 0.2rem;
+
+h4 {
+  font-size: 1.2rem;
+  color: var(--emphasis-color);
+  margin-left: 2rem;
+}
+
+span {
+
+}
+
         
-         }
 
 
 

@@ -13,7 +13,7 @@
     "storybook": "cd client && start-storybook -p 6006 -s public",
     "prettify": "prettier --write .",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\"",
     "client": "cd client && npm start",
     "server": "nodemon server.js",
     "start": "node server.js",
