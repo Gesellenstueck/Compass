@@ -27,15 +27,17 @@ const QuestionBox = styled.div`
   display: grid;
   grid-template-columns: repeat(7, auto);
   grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  /* align-items: center; */
 
   button {
     grid-row-start: 2;
+    align-self: center;
   }
 `;
 
 const Question = styled.h2`
   grid-column: 1 / span 7;
-  text-align: center;
 `;
 
 function Survey() {
@@ -44,13 +46,13 @@ function Survey() {
       <DecoPink />
       <QuestionBox>
         <Question>How was your week?</Question>
-        <SurveyButton />
-        <SurveyButton />
-        <SurveyButton />
+        <SurveyButton size="large" />
+        <SurveyButton size="medium" />
         <SurveyButton size="small" />
-        <SurveyButton />
-        <SurveyButton />
-        <SurveyButton />
+        <SurveyButton size="mini" />
+        <SurveyButton size="small" />
+        <SurveyButton size="medium" />
+        <SurveyButton size="large" />
       </QuestionBox>
       <DecoYellow />
     </Wrapper>
