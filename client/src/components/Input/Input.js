@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import PropTypes from "prop-types";
+import styled from "styled-components/macro";
 
 const Input = styled.input`
   display: block;
@@ -14,5 +15,12 @@ const Input = styled.input`
   }
   padding: 0.4rem 0 0.4rem 1.2rem;
 `;
+
+Input.propTypes = {
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 export default Input;
