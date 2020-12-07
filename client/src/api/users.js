@@ -11,7 +11,7 @@ export async function getUsers() {
 }
 
 export async function postUser(name) {
-  const response = await fetch(`http://localhost:5000/users/`, {
+  const response = await fetch("api/UserInformation", {
     method: "POST",
     body: JSON.stringify(name),
     headers: {
