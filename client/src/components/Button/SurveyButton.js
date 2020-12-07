@@ -2,25 +2,28 @@ import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
 const sizes = {
+  mini: {
+    height: "30px",
+    width: "30px",
+  },
   small: {
-    height: "50px",
-    width: "50px",
+    height: "45px",
+    width: "45px",
   },
   medium: {
-    height: "75px",
-    width: "75px",
+    height: "60px",
+    width: "60px",
   },
   large: {
-    height: "100px",
-    width: "100px",
+    height: "75px",
+    width: "75px",
   },
 };
 
 const Button = styled.button`
   border-radius: 50%;
-  border: 1px solid var(--emphasis-color);
+  border: 3px solid var(--emphasis-color);
   background: none;
-  margin: 0.2rem;
   height: ${(props) => sizes[props.size].height};
   width: ${(props) => sizes[props.size].width};
   :active {
@@ -31,7 +34,7 @@ const Button = styled.button`
 Button.propTypes = {
   backgroundColor: PropTypes.string,
 
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  size: PropTypes.oneOf(["mini", "small", "medium", "large"]),
 
   onClick: PropTypes.func,
 };
