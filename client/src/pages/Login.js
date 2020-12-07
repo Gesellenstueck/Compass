@@ -39,7 +39,7 @@ const LoginContainer = styled.form`
   }
 `;
 
-function setLS(name) {
+function setLocalStorage(name) {
   localStorage.setItem("name", name);
 }
 
@@ -49,7 +49,7 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLS(name);
+    setLocalStorage(name);
     await postUser({
       name,
     });
