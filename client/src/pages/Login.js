@@ -50,9 +50,11 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLocalStorage(name);
-    await postUser({
+    console.log(name);
+    const response = await postUser({
       name,
     });
+    console.log("Status: " + response.status);
     history.push(`/dashboard`);
   };
 
