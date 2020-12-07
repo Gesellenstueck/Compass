@@ -13,7 +13,7 @@
     "storybook": "cd client && start-storybook -p 6006 -s public",
     "prettify": "prettier --write .",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
     "server": "nodemon server.js",
     "start": "node server.js",
@@ -49,6 +49,8 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3"
   }
 }

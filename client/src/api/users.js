@@ -11,13 +11,13 @@ export async function getUsers() {
 }
 
 export async function postUser(name) {
-  const response = await fetch(`http://localhost:5000/users/`, {
+  const response = await fetch("api/users", {
     method: "POST",
     body: JSON.stringify(name),
     headers: {
       "Content-Type": "application/json",
     },
   });
-  const newName = await response.json();
-  return newName;
+
+  return response;
 }

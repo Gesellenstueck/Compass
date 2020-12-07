@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
 const InputBtn = styled.input`
@@ -14,5 +15,10 @@ const InputBtn = styled.input`
     color: var(--basic-color);
   }
 `;
+
+InputBtn.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.string,
+};
 
 export default InputBtn;
