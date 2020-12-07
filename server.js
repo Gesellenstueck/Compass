@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 
 const path = require("path");
-const { connectToDb, closeDbConnection } = require("./lib/database");
+const { connectToDb } = require("./lib/database");
 const { insertUser } = require("./lib/databaseMethods");
 
 const app = express();
