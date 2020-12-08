@@ -64,14 +64,12 @@ function Survey() {
       <MonsYellow src={monsYellowSrc} />
       <QuestionBox>
         <Question>How was your week?</Question>
-        <SurveyButton size="large" />
-        <SurveyButton size="medium" />
-        <SurveyButton size="small" />
-        <SurveyButton size="mini" />
-        <SurveyButton size="small" />
-        <SurveyButton size="medium" />
-        <SurveyButton size="large" />
-        <Scale value="1">Great</Scale>
+        {["large", "medium", "small", "mini", "small", "medium", "large"].map(
+          (size, index) => (
+            <SurveyButton key={index} size={size} />
+          )
+        )}
+        ;<Scale value="1">Great</Scale>
         <Scale>Bad</Scale>
       </QuestionBox>
       <MonsPink src={monsPinkSrc} />

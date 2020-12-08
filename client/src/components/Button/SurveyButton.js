@@ -20,8 +20,6 @@ const Button = styled.button`
   border-radius: 50%;
   border: 3px solid var(--emphasis-color);
   background: none;
-  /* height: ${(props) => sizes[props.size].height};
-  width: ${(props) => sizes[props.size].width}; */
   padding: ${(props) => sizes[props.size].padding};
   :active {
     background-color: var(--emphasis-color);
@@ -35,9 +33,5 @@ Button.propTypes = {
 
   onClick: PropTypes.func,
 };
-
-// Button.defaultProps = {
-//   size: "medium",
-// };
 
 export default Button;
