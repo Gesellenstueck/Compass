@@ -1,27 +1,30 @@
 import styled from "styled-components/macro";
-import monsPinkSrc from "../assets/images/monstera-pink.svg";
-import monsYellowSrc from "../assets/images/monstera-yellow.svg";
+import monsPinkSrc from "../assets/images/monsPink.svg";
+import monsYellowSrc from "../assets/images/monsYellow.svg";
 import SurveyButton from "../components/Button/SurveyButton";
 
 const Wrapper = styled.div`
   display: block;
   height: 100vh;
+  min-width: 100vw;
+  position: fixed;
+  overflow: hidden;
 `;
 
 const MonsPink = styled.img`
-  grid-column-start: 1;
-  grid-row-start: 3;
-  /* position: relative;
-top: 102%;
-left: -20%; */
+  position: absolute;
+  z-index: -1;
+  transform: rotate(30deg);
+  bottom: -10%;
+  left: -10%;
 `;
 
 const MonsYellow = styled.img`
-  grid-column-start: 3;
-  grid-row-start: 1;
-  /* position: absolute;
-  top: -20%;
-  left: 102%; */
+  position: absolute;
+  z-index: -1;
+  transform: rotate(210deg);
+  right: -10%;
+  top: -10%;
 `;
 
 const QuestionBox = styled.div`
@@ -31,7 +34,7 @@ const QuestionBox = styled.div`
   justify-content: center;
   align-items: center;
   grid-column-gap: 0.65rem;
-  margin-top: 50vh;
+  margin-top: 42.5vh;
 
   *:first-child {
     margin-bottom: 1rem;
@@ -58,7 +61,7 @@ const Scale = styled.span`
 function Survey() {
   return (
     <Wrapper>
-      {/* <MonsYellow src={monsYellowSrc} /> */}
+      <MonsYellow src={monsYellowSrc} />
       <QuestionBox>
         <Question>How was your week?</Question>
         <SurveyButton size="large" />
@@ -71,7 +74,7 @@ function Survey() {
         <Scale value="1">Great</Scale>
         <Scale>Bad</Scale>
       </QuestionBox>
-      {/* <MonsPink src={monsPinkSrc} /> */}
+      <MonsPink src={monsPinkSrc} />
     </Wrapper>
   );
 }
