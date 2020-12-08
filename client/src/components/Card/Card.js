@@ -47,7 +47,7 @@ const BoardCard = styled.div`
   }
 `;
 
-const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
+export const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
   return (
     <BoardCard bgColor={bgColor} {...props}>
       <h3>{label}</h3>
@@ -80,11 +80,48 @@ Card.propTypes = {
   iconProps: PropTypes.oneOf(["teamIcon"]),
 };
 
-BoardCard.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: "medium",
-  onClick: undefined,
+//AddCard
+
+const AddContainer = styled.div`
+  border-radius: 1.875rem;
+  padding: 2rem;
+
+  box-shadow: 6px 11px 15px 4px rgba(0, 0, 0, 0.2);
+
+  ${(props) => bgColors[props.bgColor]};
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+export const AddCard = ({ bgColor, imgSrc, alt, ...props }) => {
+  return (
+    <AddContainer bgColor={bgColor} {...props}>
+      <img src={imgSrc} alt={alt} />
+    </AddContainer>
+  );
 };
 
-export default Card;
+AddCard.propTypes = {
+  bgColor: PropTypes.oneOf([
+    "primaryDark",
+    "secondaryDark",
+    "primaryLight",
+    "secondaryLight",
+  ]),
+
+  label: PropTypes.string,
+
+  onClick: PropTypes.func,
+
+  imgSrc: PropTypes.string,
+
+  alt: PropTypes.string,
+
+  subline: PropTypes.string,
+
+  iconProps: PropTypes.oneOf(["teamIcon"]),
+};

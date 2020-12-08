@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import Card from "../components/Card/Card";
+import { AddCard, Card } from "../components/Card/Card";
 import Teamicon from "../assets/icons/Team.svg";
 import Lockicon from "../assets/icons/Lock.svg";
 import Addicon from "../assets/icons/Add.svg";
@@ -97,7 +97,7 @@ function Dashboard() {
           alt="Lock Icon"
           subline="Marie Groß, Lucas Naas..."
         />
-        <Card bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
+        <AddCard bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
         <div></div>
       </CardContainer>
       <h2>Mood Survey</h2>
