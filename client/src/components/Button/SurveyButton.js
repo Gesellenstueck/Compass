@@ -3,20 +3,16 @@ import styled from "styled-components/macro";
 
 const sizes = {
   mini: {
-    height: "30px",
-    width: "30px",
+    padding: "4.5vw",
   },
   small: {
-    height: "45px",
-    width: "45px",
+    padding: "5vw",
   },
   medium: {
-    height: "60px",
-    width: "60px",
+    padding: "5.5vw",
   },
   large: {
-    height: "75px",
-    width: "75px",
+    padding: "6vw",
   },
 };
 
@@ -24,8 +20,9 @@ const Button = styled.button`
   border-radius: 50%;
   border: 3px solid var(--emphasis-color);
   background: none;
-  height: ${(props) => sizes[props.size].height};
-  width: ${(props) => sizes[props.size].width};
+  /* height: ${(props) => sizes[props.size].height};
+  width: ${(props) => sizes[props.size].width}; */
+  padding: ${(props) => sizes[props.size].padding};
   :active {
     background-color: var(--emphasis-color);
   }
@@ -39,8 +36,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-Button.defaultProps = {
-  size: "medium",
-};
+// Button.defaultProps = {
+//   size: "medium",
+// };
 
 export default Button;
