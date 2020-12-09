@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 
 const path = require("path");
+
 const { connectToDb } = require("./lib/database");
-const { insertUser } = require("./lib/databaseMethods");
+const { insertUser, getQuestion } = require("./lib/databaseMethods");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,6 +16,19 @@ app.use(
   "/storybook",
   express.static(path.join(__dirname, "client/storybook-static"))
 );
+
+app.get("/api/survey/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const questionDoc = await getQuestion(id);
+    res.send(questionDoc);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
 
 // Handle React routing, return all requests to React app
 app.get("*", (req, res) => {
