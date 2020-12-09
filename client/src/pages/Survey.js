@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
+import { getQuestionDoc } from "../api/survey";
+
 import monsPinkSrc from "../assets/images/monsPink.svg";
 import monsYellowSrc from "../assets/images/monsYellow.svg";
 import SurveyButton from "../components/Button/SurveyButton";
@@ -39,16 +42,12 @@ const QuestionBox = styled.div`
   *:first-child {
     margin-bottom: 1rem;
   }
-
-  *:last-child {
-    margin-top: 0.5rem;
-  }
 `;
 
 const Question = styled.h2`
   margin: 0;
   grid-column: 1 / span 7;
-  justify-self: center;
+  text-align: center;
 `;
 
 const Scale = styled.span`
@@ -56,21 +55,40 @@ const Scale = styled.span`
   font-size: 1.3rem;
   grid-column-start: ${(props) => (props.value === "1" ? 1 : 7)};
   text-align: ${(props) => (props.value === "1" ? "left" : "right")};
+  grid-row-start: 3;
+  justify-self: center;
+  margin-top: 0.5rem;
 `;
 
 function Survey() {
+  const handleClick = () => {};
+
+  const [questionDoc, setQuestionDoc] = useState({
+    question: "",
+    scale: ["", ""],
+  });
+
+  useEffect(() => {
+    const doFetch = async () => {
+      const questionDoc = await getQuestionDoc("5fd09e58342aac296ab18e06");
+
+      setQuestionDoc(questionDoc);
+    };
+    doFetch();
+  }, []);
+
   return (
     <Wrapper>
       <MonsYellow src={monsYellowSrc} />
       <QuestionBox>
-        <Question>How was your week?</Question>
+        <Question>{questionDoc.question}</Question>
         {["large", "medium", "small", "mini", "small", "medium", "large"].map(
           (size, index) => (
-            <SurveyButton key={index} size={size} />
+            <SurveyButton key={index} size={size} onClick={handleClick} />
           )
         )}
-        ;<Scale value="1">Great</Scale>
-        <Scale>Bad</Scale>
+        <Scale value="1">{questionDoc.scale[0]}</Scale>
+        <Scale>{questionDoc.scale[1]}</Scale>
       </QuestionBox>
       <MonsPink src={monsPinkSrc} />
     </Wrapper>
