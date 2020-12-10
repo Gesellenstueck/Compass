@@ -16,7 +16,7 @@ const sizes = {
   },
 };
 
-const Button = styled.button`
+const SurveyButton = styled.button`
   border-radius: 50%;
   border: 3px solid var(--emphasis-color);
   background: none;
@@ -26,7 +26,7 @@ const Button = styled.button`
   }
 `;
 
-Button.propTypes = {
+SurveyButton.propTypes = {
   backgroundColor: PropTypes.string,
 
   size: PropTypes.oneOf(["mini", "small", "medium", "large"]),
@@ -34,4 +34,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Button;
+export default SurveyButton;

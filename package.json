@@ -17,7 +17,7 @@
     "client": "cd client && npm start",
     "server": "nodemon server.js",
     "start": "node server.js",
-    "api": "cd client && npx json-server --watch db.json --port 5000"
+    "api": "cd client && npx json-server --watch db.json --port 3001"
   },
   "repository": {
     "type": "git",
