@@ -8,6 +8,7 @@ const {
   insertUser,
   getQuestionDoc,
   insertResult,
+  getQuestions,
 } = require("./lib/databaseMethods");
 
 const app = express();
@@ -26,6 +27,19 @@ app.get("/api/questions/:id", async (req, res) => {
   try {
     const questionDoc = await getQuestionDoc(id);
     res.send(questionDoc);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.get("/api/questions/", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const questions = await getQuestions();
+    res.send(questions);
   } catch (e) {
     console.error(e);
     res
