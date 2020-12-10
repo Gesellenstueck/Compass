@@ -11,23 +11,6 @@ function App() {
       <GlobalStyles />
       <Router>
         <div className="App">
-          {/* <ul>
-            <li>
-              <Link to="/survey">Survey</Link>
-            </li>
-            <li>
-              <Link to="/whiteboard">Team Board</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/">Login Page</Link>
-            </li>
-          </ul>
-          <a href="/storybook">To Storybook</a>
-          <Button size="large">Hallo</Button> */}
-
           <Switch>
             <Route exact path="/survey">
               <Survey />

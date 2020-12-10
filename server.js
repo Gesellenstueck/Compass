@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 
 const { connectToDb } = require("./lib/database");
-const { insertUser, getQuestion } = require("./lib/databaseMethods");
+const { insertUser, getQuestionDoc } = require("./lib/databaseMethods");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,10 +17,10 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.get("/api/survey/:id", async (req, res) => {
+app.get("/api/questions/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const questionDoc = await getQuestion(id);
+    const questionDoc = await getQuestionDoc(id);
     res.send(questionDoc);
   } catch (e) {
     console.error(e);
