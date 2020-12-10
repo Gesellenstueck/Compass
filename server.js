@@ -4,7 +4,11 @@ const express = require("express");
 const path = require("path");
 
 const { connectToDb } = require("./lib/database");
-const { insertUser, getQuestionDoc } = require("./lib/databaseMethods");
+const {
+  insertUser,
+  getQuestionDoc,
+  insertResult,
+} = require("./lib/databaseMethods");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -40,6 +44,19 @@ app.post("/api/users", async (req, res) => {
     const user = req.body;
     await insertUser(user);
     res.send("New User posted into database.");
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.post("/api/results", async (req, res) => {
+  try {
+    const answer = req.body;
+    await insertResult(answer);
+    res.send("Answer posted into Database");
   } catch (e) {
     console.error(e);
     res
