@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
+import { postResult } from "../api/results";
 import { getQuestionDoc } from "../api/survey";
 
 import monsPinkSrc from "../assets/images/monsPink.svg";
@@ -61,12 +62,19 @@ const Scale = styled.span`
 `;
 
 function Survey() {
-  const handleClick = () => {};
-
   const [questionDoc, setQuestionDoc] = useState({
     question: "",
     scale: ["", ""],
   });
+
+  const handleClick = async (index) => {
+    console.log(index);
+    const result = await postResult({
+      question: questionDoc.question,
+      answer: index,
+    });
+    console.log(result);
+  };
 
   useEffect(() => {
     const doFetch = async () => {
@@ -84,7 +92,13 @@ function Survey() {
         <Question>{questionDoc.question}</Question>
         {["large", "medium", "small", "mini", "small", "medium", "large"].map(
           (size, index) => (
-            <SurveyButton key={index} size={size} onClick={handleClick} />
+            <SurveyButton
+              key={index}
+              size={size}
+              onClick={() => {
+                handleClick(index);
+              }}
+            />
           )
         )}
         <Scale value="1">{questionDoc.scale[0]}</Scale>
