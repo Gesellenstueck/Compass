@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { postResult } from "../api/results";
 import { getQuestionDoc } from "../api/survey";
+import { useParams, useHistory } from "react-router-dom";
 
 import monsPinkSrc from "../assets/images/monsPink.svg";
 import monsYellowSrc from "../assets/images/monsYellow.svg";
@@ -54,7 +55,7 @@ const Question = styled.h2`
 const Scale = styled.span`
   color: var(--emphasis-color);
   font-size: 1.3rem;
-  grid-column-start: ${(props) => (props.value === "1" ? 1 : 7)};
+  grid-column: ${(props) => (props.value === "1" ? 1 / 2 : 7)};
   text-align: ${(props) => (props.value === "1" ? "left" : "right")};
   grid-row-start: 3;
   justify-self: center;
@@ -62,28 +63,32 @@ const Scale = styled.span`
 `;
 
 function Survey() {
+  const { id } = useParams();
+  const history = useHistory();
   const [questionDoc, setQuestionDoc] = useState({
     question: "",
     scale: ["", ""],
   });
 
   const handleClick = async (index) => {
-    console.log(index);
-    const result = await postResult({
+    await postResult({
       question: questionDoc.question,
       answer: index,
     });
-    console.log(result);
+    if (questionDoc.nextQuestion) {
+      history.push(questionDoc.nextQuestion);
+    } else {
+      history.push("/dashboard");
+    }
   };
 
   useEffect(() => {
     const doFetch = async () => {
-      const questionDoc = await getQuestionDoc("5fd09e58342aac296ab18e06");
-
+      const questionDoc = await getQuestionDoc(id);
       setQuestionDoc(questionDoc);
     };
     doFetch();
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
