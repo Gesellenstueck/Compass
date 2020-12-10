@@ -56,17 +56,6 @@ const displayName = () => {
 };
 
 function Dashboard() {
-  //keep this code for mongoDB implementation
-  /* const [username, setUsername] = useState("User"); */
-
-  /*  useEffect(() => {
-    const doFetch = async () => {
-      const user = await getUserById(1);
-      console.log(user.title);
-      setUsername(user.title);
-    };
-    doFetch();
-  }, []); */
   const history = useHistory();
 
   return (
@@ -109,7 +98,7 @@ function Dashboard() {
           imgSrc={Surveyicon}
           alt="Smiley"
           subline="Completed by 7/11"
-          onClick={() => history.push("/survey")}
+          onClick={() => history.push("/survey/5fd09e58342aac296ab18e06")}
         />
         <Card
           bgColor="primaryDark"
