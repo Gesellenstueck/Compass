@@ -1,5 +1,10 @@
 import GlobalStyles from "./GlobalStyles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
 import Login from "./pages/Login";
@@ -22,7 +27,10 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/Login">
+              <Login />
+            </Route>
+            <Route path="/" render={() => <Redirect to="/Login" />}>
               <Login />
             </Route>
           </Switch>
