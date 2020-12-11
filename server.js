@@ -36,7 +36,6 @@ app.get("/api/questions/:id", async (req, res) => {
 });
 
 app.get("/api/questions/", async (req, res) => {
-  const { id } = req.params;
   try {
     const questions = await getQuestions();
     res.send(questions);
