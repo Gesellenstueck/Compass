@@ -74,6 +74,7 @@ function Login() {
         <InputBtn type="submit" value="Submit" />
 
         <Button size="large">Sign up</Button>
+        <a href="https://github.com"> Sign up with GitHub</a>
       </LoginContainer>
     </Wrapper>
   );
