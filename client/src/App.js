@@ -12,9 +12,10 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/survey">
+            <Route exact path="/survey/:id">
               <Survey />
             </Route>
+
             <Route exact path="/whiteboard">
               <Whiteboard />
             </Route>

@@ -4,7 +4,12 @@ const express = require("express");
 const path = require("path");
 
 const { connectToDb } = require("./lib/database");
-const { insertUser, getQuestionDoc } = require("./lib/databaseMethods");
+const {
+  insertUser,
+  getQuestionDoc,
+  insertResult,
+  getQuestions,
+} = require("./lib/databaseMethods");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -30,6 +35,18 @@ app.get("/api/questions/:id", async (req, res) => {
   }
 });
 
+app.get("/api/questions/", async (req, res) => {
+  try {
+    const questions = await getQuestions();
+    res.send(questions);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
 // Handle React routing, return all requests to React app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
@@ -40,6 +57,19 @@ app.post("/api/users", async (req, res) => {
     const user = req.body;
     await insertUser(user);
     res.send("New User posted into database.");
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.post("/api/results", async (req, res) => {
+  try {
+    const answer = req.body;
+    await insertResult(answer);
+    res.send("Answer posted into Database");
   } catch (e) {
     console.error(e);
     res
