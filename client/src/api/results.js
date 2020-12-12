@@ -16,3 +16,10 @@ export async function getResults() {
 
   return questions;
 }
+
+export async function getResultByID(id) {
+  const response = await fetch(`/api/results/${id}`);
+  const questions = await response.json();
+
+  return questions;
+}
