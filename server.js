@@ -56,12 +56,10 @@ app.post("/api/users", async (req, res) => {
   try {
     const user = req.body;
     await insertUser(user);
-    res.send("New User posted into database.");
+    res.json({ user });
   } catch (e) {
     console.error(e);
-    res
-      .status(500)
-      .send("An unexpected server error occured. Please try again later.");
+    res.status(500).json({ errors: ["Unexpected error."] });
   }
 });
 
