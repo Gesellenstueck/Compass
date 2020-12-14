@@ -4,31 +4,30 @@ import Whiteboard from "./pages/Whiteboard";
 import Survey from "./pages/Survey";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import { AuthProvider } from "./context/context";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <GlobalStyles />
       <Router>
-        <div className="App">
-          <Switch>
-            <Route exact path="/survey/:id">
-              <Survey />
-            </Route>
+        <Switch>
+          <Route exact path="/survey/:id">
+            <Survey />
+          </Route>
 
-            <Route exact path="/whiteboard">
-              <Whiteboard />
-            </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route exact path="/">
-              <Login />
-            </Route>
-          </Switch>
-        </div>
+          <Route exact path="/whiteboard">
+            <Whiteboard />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route exact path="/">
+            <Login />
+          </Route>
+        </Switch>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 
