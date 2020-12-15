@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import { getResultAnswers, getResultsByQuestionID } from "../api/results";
 import { getQuestions } from "../api/survey";
+import { ResultContainer } from "../components/Card/CardResult";
 
 function Overview() {
-  const [question, setQuestion] = useState("");
-
-  const [answer, setAnswer] = useState("");
+  const [overviewDoc, setOverviewDoc] = useState([]);
 
   useEffect(() => {
     const doFetch = async () => {
       const questionsArray = await getQuestions();
-      const questionOne = questionsArray[0]._id;
 
-      const results1 = await getResultsByQuestionID(questionOne);
-      console.log(results1);
-
-      /* questionsArray.map(() => console.log("1")); */
-
-      setQuestion(questionsArray[0].question);
-      setAnswer(results1[0].answer);
+      const overviewDoc = await Promise.all(
+        questionsArray.map(async (question) => {
+          const hello4 = await getResultsByQuestionID(question._id);
+          return hello4;
+        })
+      );
+      setOverviewDoc(overviewDoc);
+      console.log(overviewDoc);
     };
     doFetch();
   }, []);
@@ -26,8 +25,13 @@ function Overview() {
   return (
     <>
       <h2>{"This week's mood"}</h2>
-      <h4>{question}</h4>
-      <h4>{answer}</h4>
+      {overviewDoc.map((question, index) => (
+        <ResultContainer
+          key={index}
+          title={question.question}
+          value={question.averageMood}
+        />
+      ))}
     </>
   );
 }
