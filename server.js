@@ -51,9 +51,9 @@ app.get("/api/questions/", async (req, res) => {
 });
 
 app.get("/api/results/:id", async (req, res) => {
-  const { id, answer } = req.params;
+  const { id, question } = req.params;
   try {
-    const results = await getResultsByQuestionID(id, answer);
+    const results = await getResultsByQuestionID(id, question);
     res.send(results);
   } catch (e) {
     console.error(e);
