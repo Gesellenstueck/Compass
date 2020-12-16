@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { getResultAnswers, getResultsByQuestionID } from "../api/results";
 import { getQuestions } from "../api/survey";
 import { ResultContainer } from "../components/Card/CardResult";
+import Back from "../assets/icons/Back.svg";
+import { useHistory } from "react-router-dom";
 
 function Overview() {
+  const history = useHistory();
   const [overviewDoc, setOverviewDoc] = useState([]);
-  const [scale, setScale] = useState([]);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -26,6 +28,8 @@ function Overview() {
 
   return (
     <>
+      <img src={Back} alt="Back Button" onClick={() => history.goBack()} />
+
       <h2>{"This week's mood"}</h2>
       {overviewDoc.map((overviewDoc, index) => (
         <ResultContainer
