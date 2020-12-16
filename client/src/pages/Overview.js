@@ -5,6 +5,7 @@ import { ResultContainer } from "../components/Card/CardResult";
 
 function Overview() {
   const [overviewDoc, setOverviewDoc] = useState([]);
+  const [scale, setScale] = useState([]);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -12,8 +13,9 @@ function Overview() {
 
       const overviewDoc = await Promise.all(
         questionsArray.map(async (question) => {
-          const hello4 = await getResultsByQuestionID(question._id);
-          return hello4;
+          const scale = question.scale;
+          const questionDoc = await getResultsByQuestionID(question._id);
+          return { questionDoc, scale };
         })
       );
       setOverviewDoc(overviewDoc);
@@ -25,11 +27,12 @@ function Overview() {
   return (
     <>
       <h2>{"This week's mood"}</h2>
-      {overviewDoc.map((question, index) => (
+      {overviewDoc.map((overviewDoc, index) => (
         <ResultContainer
           key={index}
-          title={question.question}
-          value={question.averageMood}
+          title={overviewDoc.questionDoc.question}
+          value={overviewDoc.questionDoc.averageMood}
+          scale={overviewDoc.scale}
         />
       ))}
     </>
