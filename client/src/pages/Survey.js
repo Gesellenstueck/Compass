@@ -74,6 +74,7 @@ function Survey() {
     await postResult({
       question: questionDoc.question,
       answer: index,
+      id: questionDoc._id,
     });
     if (questionDoc.nextQuestion) {
       history.push(questionDoc.nextQuestion);

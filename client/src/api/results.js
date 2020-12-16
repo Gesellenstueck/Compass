@@ -9,3 +9,24 @@ export async function postResult(answer) {
 
   return response;
 }
+
+export async function getResults() {
+  const response = await fetch(`/api/results/`);
+  const questions = await response.json();
+
+  return questions;
+}
+
+export async function getResultsByQuestionID(id) {
+  const response = await fetch(`/api/results/${id}`);
+  const results = await response.json();
+
+  return results;
+}
+
+export async function getResultAnswers() {
+  const response = await fetch(`/api/results/`);
+  const questions = await response.json();
+
+  return questions;
+}

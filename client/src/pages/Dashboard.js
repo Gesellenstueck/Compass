@@ -106,6 +106,7 @@ function Dashboard() {
           label="Overview"
           imgSrc={Overview}
           alt="Graph"
+          onClick={() => history.push("/overview")}
         />
         <Card
           bgColor="primaryLight"

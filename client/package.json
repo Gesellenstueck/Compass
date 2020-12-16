@@ -46,7 +46,9 @@
       "last 1 safari version"
     ]
   },
+
   "proxy": "http://localhost:3001/",
+
   "devDependencies": {
     "@types/styled-components": "^5.1.4"
   }

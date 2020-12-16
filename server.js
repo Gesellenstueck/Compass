@@ -9,6 +9,9 @@ const {
   getQuestionDoc,
   insertResult,
   getQuestions,
+  getResults,
+  getResultsByQuestionID,
+  getResultAnswers,
 } = require("./lib/databaseMethods");
 
 const app = express();
@@ -39,6 +42,43 @@ app.get("/api/questions/", async (req, res) => {
   try {
     const questions = await getQuestions();
     res.send(questions);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.get("/api/results/:id", async (req, res) => {
+  const { id, question } = req.params;
+  try {
+    const results = await getResultsByQuestionID(id, question);
+    res.send(results);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.get("/api/results/", async (req, res) => {
+  try {
+    const results = await getResultAnswers();
+    res.send(results);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.get("/api/results/", async (req, res) => {
+  try {
+    const results = await getResultAnswers();
+    res.send(results);
   } catch (e) {
     console.error(e);
     res
