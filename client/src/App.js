@@ -9,16 +9,17 @@ import Overview from "./pages/Overview";
 
 import { AuthProvider } from "./context/context";
 
-
 function App() {
   return (
     <AuthProvider>
       <GlobalStyles />
       <Router>
-
         <Switch>
           <Route exact path="/survey/:id">
             <Survey />
+          </Route>
+          <Route exact path="/overview">
+            <Overview />
           </Route>
 
           <Route exact path="/whiteboard">
@@ -31,7 +32,6 @@ function App() {
             <Login />
           </Route>
         </Switch>
-
       </Router>
     </AuthProvider>
   );
