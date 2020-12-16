@@ -50,7 +50,7 @@ ResultContainer.propTypes = {
 
   value: PropTypes.number,
 
-  scale: PropTypes.string,
+  scale: PropTypes.array,
 
   subline: PropTypes.string,
 };
