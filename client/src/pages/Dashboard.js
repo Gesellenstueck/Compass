@@ -51,8 +51,9 @@ const HeaderContainer = styled.div`
 `;
 
 const displayName = () => {
-  const name = localStorage.getItem("name");
-  return name;
+  const data = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  const { name: userName } = data;
+  return userName;
 };
 
 function Dashboard() {

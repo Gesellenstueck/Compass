@@ -4,8 +4,9 @@ import bgImg from "../assets/images/background.svg";
 import Button from "../components/Button/Button";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { postUser } from "../api/users";
 import InputBtn from "../components/Input/InputBtn";
+import { useAuthDispatch, useAuthState } from "../context/context";
+import { loginUser } from "../context/actions";
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,23 +40,24 @@ const LoginContainer = styled.form`
   }
 `;
 
-function setLocalStorage(name) {
-  localStorage.setItem("name", name);
-}
-
 function Login() {
   const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const history = useHistory();
+
+  const dispatch = useAuthDispatch();
+  const { loading, errorMessage } = useAuthState();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLocalStorage(name);
-    console.log(name);
-    const response = await postUser({
-      name,
-    });
-    console.log("Status: " + response.status);
-    history.push(`/dashboard`);
+
+    try {
+      const response = await loginUser(dispatch, { name, password });
+      if (!response?.user) return;
+      history.push("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -68,12 +70,20 @@ function Login() {
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
+          disabled={loading}
         />
-        <Input placeholder="Password" />
+        <Input
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          disabled={loading}
+        />
 
         <InputBtn type="submit" value="Submit" />
 
         <Button size="large">Sign up</Button>
+        {errorMessage && <p>{JSON.stringify(errorMessage)}</p>}
       </LoginContainer>
     </Wrapper>
   );
