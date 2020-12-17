@@ -20,29 +20,11 @@ const Wrapper = styled.div`
 
 function Whiteboard() {
   const history = useHistory();
-  const [cards, setCards] = useState([]);
-  const [carsArray, setCardsArray] = useState([]);
+  const [cards, setCards] = useState(["Hallo"]);
 
-  useEffect(() => {
-    console.log("render");
-  }, [cards]);
-
-  const createCard = () => {
-    for (let i = 0; ; i++) {
-      let cardsArray = ["0"];
-      cardsArray.push(i);
-      console.log(cardsArray);
-    }
-
-    // const card = this.state.cardArray;
-    // const key = "";
-    // const props = "";
-    // card.push({ key, ...props });
-    // this.setState({ cardArray: card });
+  const addCard = () => {
+    setCards([...cards, "Hallo"]);
   };
-
-  // const cardsArray = []
-  // cardsArray.push(DraggableCard)
 
   return (
     <>
@@ -54,11 +36,7 @@ function Whiteboard() {
             <DraggableCard key={index} label="Hallo" bgColor="primaryDark" />
           );
         })}
-        <img
-          src={Addicon}
-          alt="Add Icon"
-          onClick={(key, props) => createCard(key, props)}
-        />
+        <img src={Addicon} alt="Add Icon" onClick={() => addCard()} />
       </Wrapper>
     </>
   );
