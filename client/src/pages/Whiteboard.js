@@ -19,10 +19,10 @@ const AddIcon = styled.img`
 
 function Whiteboard() {
   const history = useHistory();
-  const [cards, setCards] = useState(["Hallo"]);
+  const [cards, setCards] = useState(["primaryLight"]);
 
   const addCard = () => {
-    setCards([...cards, "Hallo"]);
+    setCards([...cards, "primaryDark"]);
   };
 
   return (
@@ -30,10 +30,8 @@ function Whiteboard() {
       <img src={Back} alt="Back Button" onClick={() => history.goBack()} />
       <h2>Team Board</h2>
       <Wrapper>
-        {cards.map((index) => {
-          return (
-            <DraggableCard key={index} label="Hallo" color="primaryLight" />
-          );
+        {cards.map((color) => {
+          return <DraggableCard key={color} label="Hallo" color={color} />;
         })}
         <AddIcon src={Addicon} alt="Add Icon" onClick={() => addCard()} />
       </Wrapper>
