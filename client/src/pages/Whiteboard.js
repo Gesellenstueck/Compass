@@ -5,7 +5,6 @@ import styled from "styled-components/macro";
 import Addicon from "../assets/icons/Add.svg";
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const Wrapper = styled.div`
   width: 100vw;

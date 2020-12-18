@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components/macro";
-
-const barSize = {};
+import styled from "styled-components/macro";
 
 const ResultCard = styled.div`
   color: black;

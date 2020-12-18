@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getResultAnswers, getResultsByQuestionID } from "../api/results";
+import { getResultsByQuestionID } from "../api/results";
 import { getQuestions } from "../api/survey";
 import { ResultContainer } from "../components/Card/CardResult";
 import Back from "../assets/icons/Back.svg";
@@ -21,7 +21,6 @@ function Overview() {
         })
       );
       setOverviewDoc(overviewDoc);
-      console.log(overviewDoc);
     };
     doFetch();
   }, []);
