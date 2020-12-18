@@ -9,12 +9,12 @@ import { useState } from "react";
 const Wrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
+`;
 
-  img {
-    position: fixed;
-    left: 72%;
-    bottom: 3%;
-  }
+const AddIcon = styled.img`
+  position: fixed;
+  left: 72%;
+  bottom: 3%;
 `;
 
 function Whiteboard() {
@@ -32,10 +32,10 @@ function Whiteboard() {
       <Wrapper>
         {cards.map((index) => {
           return (
-            <DraggableCard key={index} label="Hallo" bgColor="primaryDark" />
+            <DraggableCard key={index} label="Hallo" color="primaryLight" />
           );
         })}
-        <img src={Addicon} alt="Add Icon" onClick={() => addCard()} />
+        <AddIcon src={Addicon} alt="Add Icon" onClick={() => addCard()} />
       </Wrapper>
     </>
   );
