@@ -37,7 +37,7 @@ const DragCard = styled.div`
 
 export const DraggableCard = ({ bgColor, label, textarea, ...props }) => {
   return (
-    <Draggable bounds="parent">
+    <Draggable bounds="parent" cancel="textarea">
       <DragCard bgColor={bgColor} {...props}>
         <h3>{label}</h3>
 
