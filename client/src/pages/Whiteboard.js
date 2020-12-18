@@ -19,10 +19,17 @@ const AddIcon = styled.img`
 
 function Whiteboard() {
   const history = useHistory();
-  const [cards, setCards] = useState(["primaryLight"]);
+  const [cards, setCards] = useState(["primaryDark"]);
 
   const addCard = () => {
-    setCards([...cards, "primaryDark"]);
+    const colors = [
+      "primaryDark",
+      "primaryLight",
+      "secondaryDark",
+      "secondaryLight",
+    ];
+    const randomNumber = Math.floor([Math.random() * 4]);
+    setCards([...cards, colors[randomNumber]]);
   };
 
   return (
