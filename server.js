@@ -9,7 +9,7 @@ const {
   getQuestionDoc,
   insertResult,
   getQuestions,
-  getResults,
+
   getResultsByQuestionID,
   getResultAnswers,
 } = require("./lib/databaseMethods");

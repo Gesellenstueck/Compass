@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components/macro";
+import Draggable from "react-draggable";
 
 const bgColors = {
   primaryDark: css`
@@ -36,11 +37,13 @@ const DragCard = styled.div`
 
 export const DraggableCard = ({ bgColor, label, textarea, ...props }) => {
   return (
-    <DragCard bgColor={bgColor} {...props}>
-      <h3>{label}</h3>
+    <Draggable bounds="parent">
+      <DragCard bgColor={bgColor} {...props}>
+        <h3>{label}</h3>
 
-      <textarea placeholder="What's on your mind?"></textarea>
-    </DragCard>
+        <textarea placeholder="What's on your mind?"></textarea>
+      </DragCard>
+    </Draggable>
   );
 };
 
