@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import Draggable from "react-draggable";
 import { ReactComponent as Chat } from "../../assets/icons/Chat.svg";
+import { ReactComponent as Heart } from "../../assets/icons/love.svg";
 
 const colors = {
   primaryDark: {
@@ -10,11 +11,11 @@ const colors = {
     fill: "var(--primaryLight)",
   },
   secondaryLight: {
-    background: "var(--secondayLight)",
+    background: "var(--secondaryLight)",
     fill: "var(--secondaryDark)",
   },
   secondaryDark: {
-    background: "var(--secondayDark)",
+    background: "var(--secondaryDark)",
     fill: "var(--secondaryLight)",
   },
   primaryLight: {
@@ -33,9 +34,7 @@ const DragCard = styled.div`
   background: ${(props) => colors[props.color].background};
   textarea {
     border: none;
-    background: var(--primaryLight);
-    :focus {
-    }
+    background: none;
   }
 `;
 
@@ -45,6 +44,8 @@ const IconContainer = styled.div`
   width: 100%;
   svg {
     fill: ${(props) => colors[props.color].fill};
+    min-height: 44px;
+    min-width: 44px;
   }
 `;
 
@@ -56,6 +57,7 @@ export const DraggableCard = ({ color, label, textarea, ...props }) => {
 
         <textarea placeholder="What's on your mind?"></textarea>
         <IconContainer color={color}>
+          <Heart />
           <Chat />
         </IconContainer>
       </DragCard>
