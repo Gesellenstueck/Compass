@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Overview from "./pages/Overview";
 
 import { AuthProvider } from "./context/context";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route exact path="/*">
+            <Error />
           </Route>
         </Switch>
       </Router>
