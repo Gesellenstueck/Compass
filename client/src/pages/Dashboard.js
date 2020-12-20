@@ -8,6 +8,7 @@ import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 import { useHistory } from "react-router-dom";
+import monsYellowSrc from "../assets/images/monsYellow.svg";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
@@ -50,6 +51,14 @@ const HeaderContainer = styled.div`
   margin: 1rem 0 2rem;
 `;
 
+const MonsYellow = styled.img`
+  position: absolute;
+  z-index: -1;
+  transform: rotate(210deg);
+  right: -23%;
+  top: -24%;
+`;
+
 const displayName = () => {
   const data = JSON.parse(localStorage.getItem("currentUser") || "{}");
   const { name: userName } = data;
@@ -61,6 +70,7 @@ function Dashboard() {
 
   return (
     <Wrapper>
+      <MonsYellow src={monsYellowSrc} />
       <MenuIcon />
 
       <HeaderContainer>
