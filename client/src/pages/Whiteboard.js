@@ -9,20 +9,27 @@ import { useState } from "react";
 const Wrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
+`;
 
-  img {
-    position: fixed;
-    left: 72%;
-    bottom: 3%;
-  }
+const AddIcon = styled.img`
+  position: fixed;
+  left: 72%;
+  bottom: 3%;
 `;
 
 function Whiteboard() {
   const history = useHistory();
-  const [cards, setCards] = useState(["Hallo"]);
+  const [cards, setCards] = useState(["primaryDark"]);
 
   const addCard = () => {
-    setCards([...cards, "Hallo"]);
+    const colors = [
+      "primaryDark",
+      "primaryLight",
+      "secondaryDark",
+      "secondaryLight",
+    ];
+    const randomNumber = Math.floor([Math.random() * 4]);
+    setCards([...cards, colors[randomNumber]]);
   };
 
   return (
@@ -30,12 +37,10 @@ function Whiteboard() {
       <img src={Back} alt="Back Button" onClick={() => history.goBack()} />
       <h2>Team Board</h2>
       <Wrapper>
-        {cards.map((index) => {
-          return (
-            <DraggableCard key={index} label="Hallo" bgColor="primaryDark" />
-          );
+        {cards.map((color) => {
+          return <DraggableCard key={color} label="Hallo" color={color} />;
         })}
-        <img src={Addicon} alt="Add Icon" onClick={() => addCard()} />
+        <AddIcon src={Addicon} alt="Add Icon" onClick={() => addCard()} />
       </Wrapper>
     </>
   );
