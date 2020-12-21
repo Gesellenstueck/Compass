@@ -17,10 +17,7 @@ const AddIcon = styled.img`
 `;
 
 function Whiteboard() {
-
-  const history = useHistory();
   const [cards, setCards] = useState(["primaryDark"]);
-
 
   const addCard = () => {
     const colors = [
