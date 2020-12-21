@@ -28,6 +28,11 @@ const DragCard = styled.div`
   border-radius: 1.875rem;
   padding: 2rem;
 
+  h3 {
+    text-shadow: ${(props) =>
+      props.color === "secondaryLight" ? "0 0 7.5px rgba(255,192,87)" : "none"};
+  }
+
   box-shadow: 6px 11px 15px 4px rgba(0, 0, 0, 0.2);
 
   display: inline-block;
