@@ -5,7 +5,6 @@ const sizes = {
   small: {
     font: "Oxygen-Regular",
   },
-  medium: {},
   large: {
     font: "Oxygen-Bold",
   },
@@ -28,13 +27,13 @@ const Button = styled.button`
 Button.propTypes = {
   backgroundColor: PropTypes.string,
 
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  size: PropTypes.oneOf(["small", "large"]),
 
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  size: "medium",
+  size: "small",
 };
 
 export default Button;
