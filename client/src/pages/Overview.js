@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getResultsByQuestionID } from "../api/results";
 import { getQuestions } from "../api/survey";
 import { ResultContainer } from "../components/Card/CardResult";
-import Back from "../assets/icons/Back.svg";
+
 import { useHistory } from "react-router-dom";
+import { Header } from "../components/Header/Header";
 
 function Overview() {
-  const history = useHistory();
   const [overviewDoc, setOverviewDoc] = useState([]);
 
   useEffect(() => {
@@ -27,9 +27,7 @@ function Overview() {
 
   return (
     <>
-      <img src={Back} alt="Back Button" onClick={() => history.goBack()} />
-
-      <h2>{"This week's mood"}</h2>
+      <Header title="This week's mood" />
       {overviewDoc.map((overviewDoc, index) => (
         <ResultContainer
           key={index}

@@ -4,18 +4,21 @@ import styled from "styled-components/macro";
 
 const ResultCard = styled.div`
   color: black;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
 
   dd {
-    width: 100%;
-    margin: 0;
+    width: 90%;
+    margin: 0.5rem 1rem 0.1rem;
+
     background: lightblue;
     border-radius: 15px;
     div {
       width: ${(props) => props.value}%;
-      background: red;
+      background: #70af85;
       border-radius: 15px;
       text-align: right;
+      padding-right: 0.5rem;
     }
   }
 `;
@@ -23,7 +26,7 @@ const ResultCard = styled.div`
 const Scale = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  margin: 0 1rem;
 `;
 
 export const ResultContainer = ({ title, value, scale }) => {
