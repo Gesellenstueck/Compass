@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   padding-top: 2rem;
 
   display: grid;
-
+  overflow: hidden;
   grid-template-rows: repeat(8, auto);
   grid-column-gap: 1.5rem;
 
@@ -52,11 +52,12 @@ const HeaderContainer = styled.div`
 `;
 
 const MonsYellow = styled.img`
-  position: absolute;
+  position: fixed;
   z-index: -1;
   transform: rotate(210deg);
-  right: -23%;
-  top: -24%;
+  right: -20%;
+  top: -18%;
+  opacity: 50%;
 `;
 
 const displayName = () => {
@@ -70,8 +71,8 @@ function Dashboard() {
 
   return (
     <Wrapper>
-      <MonsYellow src={monsYellowSrc} />
       <MenuIcon />
+      <MonsYellow src={monsYellowSrc} />
 
       <HeaderContainer>
         <h1>Hello {displayName()},</h1>
