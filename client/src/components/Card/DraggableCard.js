@@ -43,7 +43,7 @@ const IconContainer = styled.div`
   height: 44px;
   width: 100%;
   svg {
-    fill: ${(props) => colors[props.color].fill};
+    /* fill: ${(props) => colors[props.color].fill}; */
     min-height: 44px;
     min-width: 44px;
   }
@@ -54,11 +54,11 @@ export const DraggableCard = ({ color, label, textarea, ...props }) => {
     <Draggable bounds="parent" cancel="textarea">
       <DragCard color={color} {...props}>
         <h3>{label}</h3>
-
         <textarea placeholder="What's on your mind?"></textarea>
         <IconContainer color={color}>
           <Heart />
           <Chat />
+          <button>Delete</button>
         </IconContainer>
       </DragCard>
     </Draggable>
