@@ -69,6 +69,26 @@ const displayName = () => {
 function Dashboard() {
   const history = useHistory();
 
+  function getDate() {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let today = new Date();
+    let weekNum = today.getDay();
+    let weekday = days[weekNum];
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    return `${weekday} ${day}.${month}.${year}`;
+  }
+
   return (
     <Wrapper>
       <MenuIcon />
@@ -80,6 +100,7 @@ function Dashboard() {
       </HeaderContainer>
 
       <h2>Your Boards</h2>
+
       <CardContainer>
         <div></div>
         <Card
@@ -109,7 +130,7 @@ function Dashboard() {
           label="This Week's Survey"
           imgSrc={Surveyicon}
           alt="Smiley"
-          subline="Completed by 7/11"
+          subline={getDate()}
           onClick={() => history.push("/survey/5fd09e58342aac296ab18e06")}
         />
         <Card
