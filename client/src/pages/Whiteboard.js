@@ -35,7 +35,7 @@ function Whiteboard() {
       <Header title="Team Board" />
       <Wrapper>
         {cards.map((color) => {
-          return <DraggableCard key={color} label="Hallo" color={color} />;
+          return <DraggableCard key={color} color={color} />;
         })}
         <AddIcon src={Addicon} alt="Add Icon" onClick={() => addCard()} />
       </Wrapper>
