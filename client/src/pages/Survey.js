@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { postResult } from "../api/results";
 import { getQuestionDoc } from "../api/survey";
+import getDate from "../utils/Date";
 import { useParams, useHistory } from "react-router-dom";
 
 import monsPinkSrc from "../assets/images/monsPink.svg";
@@ -70,12 +71,15 @@ function Survey() {
     scale: ["", ""],
   });
 
+  const dateObj = getDate();
+
   const handleClick = async (index) => {
     await postResult({
       question: questionDoc.question,
       answer: index,
       id: questionDoc._id,
       userID: JSON.parse(localStorage.getItem("currentUser"))._id,
+      date: dateObj.weekNumber,
     });
     if (questionDoc.nextQuestion) {
       history.push(questionDoc.nextQuestion);

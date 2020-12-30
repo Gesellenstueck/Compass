@@ -8,7 +8,10 @@ import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 import { useHistory } from "react-router-dom";
+import getDate from "../utils/Date";
 import monsYellowSrc from "../assets/images/monsYellow.svg";
+import { useEffect, useState } from "react";
+import { checkUserId } from "../api/results";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
@@ -68,26 +71,28 @@ const displayName = () => {
 
 function Dashboard() {
   const history = useHistory();
+  const [disabled, setDisabled] = useState(false);
+  const dateObj = getDate();
 
-  function getDate() {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let today = new Date();
-    let weekNum = today.getDay();
-    let weekday = days[weekNum];
-    let year = today.getFullYear();
-    let month = today.getMonth() + 1;
-    let day = today.getDate();
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("currentUser") || "{}");
+    const { _id: userID } = data;
 
-    return `${weekday} ${day}.${month}.${year}`;
-  }
+    const doFetch = async () => {
+      const checkedUserId = await checkUserId(userID);
+
+      const dateMatch = checkedUserId.filter(
+        (object) => object.date === dateObj.weekNumber
+      );
+      console.log(dateMatch);
+      if (dateMatch.length > 1) {
+        setDisabled(true);
+      } else {
+        setDisabled(false);
+      }
+    };
+    doFetch();
+  }, []);
 
   return (
     <Wrapper>
@@ -130,8 +135,12 @@ function Dashboard() {
           label="This Week's Survey"
           imgSrc={Surveyicon}
           alt="Smiley"
-          subline={getDate()}
-          onClick={() => history.push("/survey/5fd09e58342aac296ab18e06")}
+          subline={dateObj.date}
+          isDisabled={disabled}
+          onClick={() =>
+            history.push("/survey/5fd09e58342aac296ab18e06") &&
+            setDisabled(true)
+          }
         />
         <Card
           bgColor="primaryDark"
