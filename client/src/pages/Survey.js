@@ -75,6 +75,7 @@ function Survey() {
       question: questionDoc.question,
       answer: index,
       id: questionDoc._id,
+      userID: JSON.parse(localStorage.getItem("currentUser"))._id,
     });
     if (questionDoc.nextQuestion) {
       history.push(questionDoc.nextQuestion);
