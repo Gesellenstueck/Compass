@@ -24,6 +24,13 @@ export async function getResultsByQuestionID(id) {
   return results;
 }
 
+export async function checkUserId(userID) {
+  const response = await fetch(`/api/results/${userID}`);
+  const results = await response.json();
+
+  return results;
+}
+
 export async function getResultAnswers() {
   const response = await fetch(`/api/results/`);
   const questions = await response.json();
