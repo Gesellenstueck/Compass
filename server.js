@@ -51,10 +51,10 @@ app.get("/api/questions/", async (req, res) => {
   }
 });
 
-app.get("/api/results/:userID", async (req, res) => {
-  const { userID } = req.params;
+app.get("/api/results/:id", async (req, res) => {
+  const { id, question } = req.params;
   try {
-    const results = await checkUserID(userID);
+    const results = await getResultsByQuestionID(id, question);
     res.send(results);
   } catch (e) {
     console.error(e);
@@ -64,10 +64,10 @@ app.get("/api/results/:userID", async (req, res) => {
   }
 });
 
-app.get("/api/results/:id", async (req, res) => {
-  const { id, question } = req.params;
+app.get("/api/results/:userID", async (req, res) => {
+  const { userID } = req.params;
   try {
-    const results = await getResultsByQuestionID(id, question);
+    const results = await checkUserID(userID);
     res.send(results);
   } catch (e) {
     console.error(e);
