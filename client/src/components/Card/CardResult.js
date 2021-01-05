@@ -3,22 +3,28 @@ import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
 const ResultCard = styled.div`
-  color: black;
+  color: var(--emphasis-color);
   margin: 1.5rem 0;
-  text-align: center;
+
+  h3 {
+    margin: 0 0.25rem;
+  }
 
   dd {
-    width: 90%;
-    margin: 0.5rem 1rem 0.1rem;
-
-    background: lightblue;
+    height: 1.9rem;
+    margin: 0.7rem 0 0.4rem;
+    background: var(--primaryLight);
     border-radius: 15px;
+
     div {
+      display: flex;
+      height: 1.9rem;
       width: ${(props) => props.value}%;
-      background: #70af85;
+      background: var(--primaryDark);
       border-radius: 15px;
-      text-align: right;
       padding-right: 0.5rem;
+      align-items: center;
+      justify-content: flex-end;
     }
   }
 `;
@@ -26,7 +32,18 @@ const ResultCard = styled.div`
 const Scale = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 1rem;
+  margin: 0 0.25rem;
+`;
+
+const Line = styled.hr`
+  display: block;
+  width: 90%;
+  height: 0.18rem;
+  border: 0;
+  border-top: 0.125rem solid var(--primaryLight);
+  border-radius: 15px;
+  padding: 0;
+  margin-top: 2rem;
 `;
 
 export const ResultContainer = ({ title, value, scale }) => {
@@ -40,6 +57,7 @@ export const ResultContainer = ({ title, value, scale }) => {
         <span> {scale[0]}</span>
         <span> {scale[1]}</span>
       </Scale>
+      <Line />
     </ResultCard>
   );
 };
