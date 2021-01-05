@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import Back from "../../assets/icons/Back.svg";
 import { useHistory } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   display: flex;
-  align-items: center;
-  margin: 0.5rem 1rem;
-  h2 {
+  margin-bottom: 2rem;
+  img {
+    padding: 0;
+  }
+  h1 {
     margin: 0 0 0 1rem;
+    padding: 0 0 0.2rem 0;
   }
 `;
 
@@ -18,7 +21,7 @@ export const Header = ({ title }) => {
   return (
     <HeaderContainer>
       <img src={Back} alt="Back Button" onClick={() => history.goBack()} />
-      <h2>{title}</h2>
+      <h1>{title}</h1>
     </HeaderContainer>
   );
 };
