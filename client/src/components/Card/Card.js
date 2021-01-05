@@ -28,6 +28,7 @@ const BoardCard = styled.div`
   grid-template-columns: auto 5% 1fr;
   grid-template-rows: auto 1fr;
   ${(props) => bgColors[props.bgColor]};
+  opacity: ${(props) => (props.isDisabled ? "0.6" : "")};
 
   img {
     align-self: center;
@@ -47,10 +48,18 @@ const BoardCard = styled.div`
   }
 `;
 
-export const Card = ({ bgColor, label, imgSrc, alt, subline, ...props }) => {
+export const Card = ({
+  bgColor,
+  label,
+  imgSrc,
+  alt,
+  subline,
+  isDisabled,
+  ...props
+}) => {
   return (
-    <BoardCard bgColor={bgColor} {...props}>
-      <h3>{label}</h3>
+    <BoardCard bgColor={bgColor} isDisabled={isDisabled} {...props}>
+      {isDisabled ? <h3>Already completed</h3> : <h3>{label}</h3>}
 
       <img src={imgSrc} alt={alt} />
 
@@ -76,6 +85,8 @@ Card.propTypes = {
   alt: PropTypes.string,
 
   subline: PropTypes.string,
+
+  isDisabled: PropTypes.bool,
 
   iconProps: PropTypes.oneOf(["teamIcon"]),
 };

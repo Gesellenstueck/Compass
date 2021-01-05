@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const MonsPink = styled.img`
-  position: absolute;
+  position: fixed;
   z-index: -1;
   transform: rotate(30deg);
   bottom: -10%;
@@ -21,7 +21,7 @@ const MonsPink = styled.img`
 `;
 
 const MonsYellow = styled.img`
-  position: absolute;
+  position: fixed;
   z-index: -1;
   transform: rotate(210deg);
   right: -10%;
@@ -54,7 +54,7 @@ function Error() {
           Go back to dashboard
         </DashboardButton>
       </TextContainer>
-      <MonsPink sry={monsPinkSrc} />
+      <MonsPink src={monsPinkSrc} />
     </Wrapper>
   );
 }

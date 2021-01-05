@@ -28,6 +28,14 @@ const DragCard = styled.div`
   border-radius: 1.875rem;
   padding: 2rem;
 
+  h3 {
+    text-shadow: ${(props) =>
+      props.color === "secondaryLight" ? "0 0 7.5px rgba(255,192,87)" : "none"};
+    input {
+      background: none;
+    }
+  }
+
   box-shadow: 6px 11px 15px 4px rgba(0, 0, 0, 0.2);
 
   display: inline-block;
@@ -35,27 +43,27 @@ const DragCard = styled.div`
   textarea {
     border: none;
     background: none;
+    margin-bottom: 2rem;
   }
 `;
 
 const IconContainer = styled.div`
   display: flex;
-  height: 44px;
-  width: 100%;
+
   svg {
     fill: ${(props) => colors[props.color].fill};
-    min-height: 44px;
-    min-width: 44px;
+    height: 22px;
+    width: 22px;
+    margin-right: 5px;
   }
 `;
 
 export const DraggableCard = ({ color, label, textarea, ...props }) => {
   return (
-    <Draggable bounds="parent" cancel="textarea">
+    <Draggable bounds="parent" cancel={"textarea"}>
       <DragCard color={color} {...props}>
-        <h3>{label}</h3>
-
         <textarea placeholder="What's on your mind?"></textarea>
+
         <IconContainer color={color}>
           <Heart />
           <Chat />

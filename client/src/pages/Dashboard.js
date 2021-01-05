@@ -8,13 +8,16 @@ import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
 import { useHistory } from "react-router-dom";
+import getDate from "../utils/Date";
 import monsYellowSrc from "../assets/images/monsYellow.svg";
+import { useEffect, useState } from "react";
+import { checkUserId } from "../api/results";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
 
   display: grid;
-
+  overflow: hidden;
   grid-template-rows: repeat(8, auto);
   grid-column-gap: 1.5rem;
 
@@ -52,11 +55,12 @@ const HeaderContainer = styled.div`
 `;
 
 const MonsYellow = styled.img`
-  position: absolute;
+  position: fixed;
   z-index: -1;
   transform: rotate(210deg);
-  right: -23%;
-  top: -24%;
+  right: -20%;
+  top: -18%;
+  opacity: 50%;
 `;
 
 const displayName = () => {
@@ -67,11 +71,33 @@ const displayName = () => {
 
 function Dashboard() {
   const history = useHistory();
+  const [disabled, setDisabled] = useState(false);
+  const dateObj = getDate();
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("currentUser") || "{}");
+    const { _id: userID } = data;
+
+    const doFetch = async () => {
+      const checkedUserId = await checkUserId(userID);
+
+      const dateMatch = checkedUserId.filter(
+        (object) => object.date === dateObj.weekNumber
+      );
+      console.log(dateMatch);
+      if (dateMatch.length > 1) {
+        setDisabled(true);
+      } else {
+        setDisabled(false);
+      }
+    };
+    doFetch();
+  }, []);
 
   return (
     <Wrapper>
-      <MonsYellow src={monsYellowSrc} />
       <MenuIcon />
+      <MonsYellow src={monsYellowSrc} />
 
       <HeaderContainer>
         <h1>Hello {displayName()},</h1>
@@ -79,6 +105,7 @@ function Dashboard() {
       </HeaderContainer>
 
       <h2>Your Boards</h2>
+
       <CardContainer>
         <div></div>
         <Card
@@ -108,8 +135,12 @@ function Dashboard() {
           label="This Week's Survey"
           imgSrc={Surveyicon}
           alt="Smiley"
-          subline="Completed by 7/11"
-          onClick={() => history.push("/survey/5fd09e58342aac296ab18e06")}
+          subline={dateObj.date}
+          isDisabled={disabled}
+          onClick={() =>
+            history.push("/survey/5fd09e58342aac296ab18e06") &&
+            setDisabled(true)
+          }
         />
         <Card
           bgColor="primaryDark"
