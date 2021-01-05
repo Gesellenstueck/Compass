@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { getResultsByQuestionID } from "../api/results";
 import { getQuestions } from "../api/survey";
 import { ResultContainer } from "../components/Card/CardResult";
-
-import { useHistory } from "react-router-dom";
 import { Header } from "../components/Header/Header";
+
+const Wrapper = styled.div`
+  margin: 2rem 1.5rem;
+`;
 
 function Overview() {
   const [overviewDoc, setOverviewDoc] = useState([]);
@@ -26,7 +29,7 @@ function Overview() {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       <Header title="This week's mood" />
       {overviewDoc.map((overviewDoc, index) => (
         <ResultContainer
@@ -36,7 +39,7 @@ function Overview() {
           scale={overviewDoc.scale}
         />
       ))}
-    </>
+    </Wrapper>
   );
 }
 

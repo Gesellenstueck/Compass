@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
 
     --basic-color: #FFFFFF;
 
-    //card colors
     --primaryDark: #FF9192;
     --primaryLight: #FECDC5;
     --secondaryLight: #FFE591;
@@ -30,13 +29,7 @@ const GlobalStyles = createGlobalStyle`
         src: url(${OxygenRegular}) format("truetype");
               } 
       font-family:"OxygenRegular";
-      font-size:4vw;   
-      @media screen and (min-width: 768px){
-        font-size: 30px;
-      }
-      color: var(--basic-color);
-
-           
+      color: var(--basic-color);  
     }
     
     
@@ -52,6 +45,7 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.2rem;
   }
   h1 {
+    font-size: 1.8rem;
   color: var(--emphasis-color);
   margin-left: 2rem;
   }
@@ -74,10 +68,6 @@ h4 {
 span {
 
 }
-
-        
-
-
 
 button, input  {
   outline: none;
