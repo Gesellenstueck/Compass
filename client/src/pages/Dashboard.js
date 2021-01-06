@@ -4,6 +4,7 @@ import Teamicon from "../assets/icons/Team.svg";
 import Lockicon from "../assets/icons/Lock.svg";
 import Addicon from "../assets/icons/Add.svg";
 import Surveyicon from "../assets/icons/Smiley.svg";
+import FeedbackIcon from "../assets/icons/SmileyFeedback.svg";
 import Overview from "../assets/icons/Overview.svg";
 import Chat from "../assets/icons/Chat.svg";
 import { ReactComponent as MenuIcon } from "../assets/icons/List.svg";
@@ -151,8 +152,8 @@ function Dashboard() {
         <Card
           bgColor="primaryLight"
           label="Feedback"
-          imgSrc={Surveyicon}
-          alt=""
+          imgSrc={FeedbackIcon}
+          alt="Smiley"
         />
         <div></div>
       </CardContainer>
