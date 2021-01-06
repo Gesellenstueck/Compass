@@ -84,7 +84,6 @@ function Dashboard() {
       const dateMatch = checkedUserId.filter(
         (object) => object.date === dateObj.weekNumber
       );
-      console.log(dateMatch);
       if (dateMatch.length > 1) {
         setDisabled(true);
       } else {
@@ -92,7 +91,7 @@ function Dashboard() {
       }
     };
     doFetch();
-  }, []);
+  });
 
   return (
     <Wrapper>

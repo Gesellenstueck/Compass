@@ -18,14 +18,14 @@ export async function getResults() {
 }
 
 export async function getResultsByQuestionID(id) {
-  const response = await fetch(`/api/results/${id}`);
+  const response = await fetch(`/api/results/question/${id}`);
   const results = await response.json();
 
   return results;
 }
 
 export async function checkUserId(userID) {
-  const response = await fetch(`/api/results/${userID}`);
+  const response = await fetch(`/api/results/user/${userID}`);
   const results = await response.json();
 
   return results;

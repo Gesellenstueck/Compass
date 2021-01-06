@@ -51,35 +51,23 @@ app.get("/api/questions/", async (req, res) => {
   }
 });
 
-app.get("/api/results/:userID", async (req, res) => {
+app.get("/api/results/question/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const results = await getResultsByQuestionID(id);
+    res.send(results);
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .send("An unexpected server error occured. Please try again later.");
+  }
+});
+
+app.get("/api/results/user/:userID", async (req, res) => {
   const { userID } = req.params;
   try {
     const results = await checkUserID(userID);
-    res.send(results);
-  } catch (e) {
-    console.error(e);
-    res
-      .status(500)
-      .send("An unexpected server error occured. Please try again later.");
-  }
-});
-
-app.get("/api/results/:id", async (req, res) => {
-  const { id, question } = req.params;
-  try {
-    const results = await getResultsByQuestionID(id, question);
-    res.send(results);
-  } catch (e) {
-    console.error(e);
-    res
-      .status(500)
-      .send("An unexpected server error occured. Please try again later.");
-  }
-});
-
-app.get("/api/results/", async (req, res) => {
-  try {
-    const results = await getResultAnswers();
     res.send(results);
   } catch (e) {
     console.error(e);
