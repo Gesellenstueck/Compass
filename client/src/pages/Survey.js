@@ -56,10 +56,11 @@ const Question = styled.h2`
 const Scale = styled.span`
   color: var(--emphasis-color);
   font-size: 1.3rem;
-  grid-column: ${(props) => (props.value === "1" ? 1 / 2 : 7)};
+  grid-column: ${(props) =>
+    props.value === "1" ? "1 / span 2" : "5 / span 3"};
   text-align: ${(props) => (props.value === "1" ? "left" : "right")};
   grid-row-start: 3;
-  justify-self: center;
+
   margin-top: 0.5rem;
 `;
 
@@ -99,6 +100,7 @@ function Survey() {
   return (
     <Wrapper>
       <MonsYellow src={monsYellowSrc} />
+
       <QuestionBox>
         <Question>{questionDoc.question}</Question>
         {["large", "medium", "small", "mini", "small", "medium", "large"].map(
@@ -115,6 +117,7 @@ function Survey() {
         <Scale value="1">{questionDoc.scale[0]}</Scale>
         <Scale>{questionDoc.scale[1]}</Scale>
       </QuestionBox>
+
       <MonsPink src={monsPinkSrc} />
     </Wrapper>
   );
