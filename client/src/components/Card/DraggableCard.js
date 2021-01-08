@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import Draggable from "react-draggable";
-import { ReactComponent as Chat } from "../../assets/icons/Chat.svg";
+import { ReactComponent as Chat } from "../../assets/icons/Comment.svg";
 import { ReactComponent as Heart } from "../../assets/icons/love.svg";
 
 const colors = {
