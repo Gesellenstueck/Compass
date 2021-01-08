@@ -6,6 +6,11 @@ import { useState } from "react";
 import { Header } from "../components/Header/Header";
 
 const Wrapper = styled.div`
+  padding: 2rem 0 1rem 1.5rem;
+`;
+
+const DraggableContainer = styled.div`
+  padding-top: 6rem;
   width: 100vw;
   min-height: 100vh;
 `;
@@ -31,15 +36,15 @@ function Whiteboard() {
   };
 
   return (
-    <>
+    <Wrapper>
       <Header title="Team Board" />
-      <Wrapper>
+      <DraggableContainer>
         {cards.map((color) => {
           return <DraggableCard key={color} color={color} />;
         })}
         <AddIcon src={Addicon} alt="Add Icon" onClick={() => addCard()} />
-      </Wrapper>
-    </>
+      </DraggableContainer>
+    </Wrapper>
   );
 }
 
