@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import Draggable from "react-draggable";
 import { ReactComponent as Chat } from "../../assets/icons/Comment.svg";
 import { ReactComponent as Heart } from "../../assets/icons/love.svg";
+import { useState } from "react";
 
 const colors = {
   primaryDark: {
@@ -40,10 +41,20 @@ const DragCard = styled.div`
 
   display: inline-block;
   background: ${(props) => colors[props.color].background};
+`;
+
+const CardContainer = styled.section`
   textarea {
+    font-family: "OxygenRegular";
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: var(--basic-color);
+    ::placeholder {
+      color: var(--basic-color);
+    }
     border: none;
     background: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -54,20 +65,33 @@ const IconContainer = styled.div`
     fill: ${(props) => colors[props.color].fill};
     height: 22px;
     width: 22px;
-    margin-right: 5px;
+    margin-right: 8px;
+  }
+
+  span {
+    margin-right: 15px;
   }
 `;
 
 export const DraggableCard = ({ color, label, textarea, ...props }) => {
-  return (
-    <Draggable bounds="parent" cancel={"textarea"}>
-      <DragCard color={color} {...props}>
-        <textarea placeholder="What's on your mind?"></textarea>
+  const [count, setCount] = useState(null);
+  const [placeholder, setPlaceholder] = useState("What's on your mind?");
 
-        <IconContainer color={color}>
-          <Heart />
-          <Chat />
-        </IconContainer>
+  return (
+    <Draggable bounds="parent" cancel={"section"}>
+      <DragCard color={color} {...props}>
+        <CardContainer>
+          <textarea
+            placeholder={placeholder}
+            onFocus={() => setPlaceholder("")}
+            spellCheck="false"
+          ></textarea>
+          <IconContainer color={color}>
+            <Heart onClick={() => setCount(count + 1)} />
+            {count && <span>{count}</span>}
+            <Chat />
+          </IconContainer>
+        </CardContainer>
       </DragCard>
     </Draggable>
   );
