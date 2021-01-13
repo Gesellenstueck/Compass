@@ -10,18 +10,19 @@ import monsYellowSrc from "../assets/images/monsYellow.svg";
 import SurveyButton from "../components/Button/SurveyButton";
 
 const Wrapper = styled.div`
-  display: block;
+  display: grid;
   height: 100vh;
   min-width: 100vw;
   position: fixed;
   overflow: hidden;
+  align-items: center;
 `;
 
 const MonsPink = styled.img`
   position: absolute;
   z-index: -1;
   transform: rotate(30deg);
-  bottom: -10%;
+  bottom: -15%;
   left: -10%;
 `;
 
@@ -30,7 +31,7 @@ const MonsYellow = styled.img`
   z-index: -1;
   transform: rotate(210deg);
   right: -10%;
-  top: -10%;
+  top: -15%;
 `;
 
 const QuestionBox = styled.div`
@@ -40,7 +41,6 @@ const QuestionBox = styled.div`
   justify-content: center;
   align-items: center;
   grid-column-gap: 0.65rem;
-  margin-top: 42.5vh;
 
   *:first-child {
     margin-bottom: 1rem;
@@ -57,7 +57,7 @@ const Scale = styled.span`
   color: var(--emphasis-color);
   font-size: 1.3rem;
   grid-column: ${(props) =>
-    props.value === "1" ? "1 / span 2" : "5 / span 3"};
+    props.value === "1" ? "1 / span 3" : "5 / span 3"};
   text-align: ${(props) => (props.value === "1" ? "left" : "right")};
   grid-row-start: 3;
 
