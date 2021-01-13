@@ -46,7 +46,7 @@ const DragCard = styled.div`
 const CardContainer = styled.section`
   textarea {
     font-family: "OxygenRegular";
-    font-size: 1.4rem;
+    font-size: 1rem;
     letter-spacing: 0.1rem;
     color: var(--basic-color);
     ::placeholder {

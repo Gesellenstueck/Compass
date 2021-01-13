@@ -61,7 +61,7 @@ const MonsYellow = styled.img`
   transform: rotate(210deg);
   right: -20%;
   top: -18%;
-  opacity: 50%;
+  opacity: 65%;
 `;
 
 const displayName = () => {
