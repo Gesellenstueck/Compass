@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
         src: url(${OxygenRegular}) format("woff2");
         src: url(${OxygenRegular}) format("truetype");
               } 
-      font-family:"OxygenRegular";
+      font-family:"OxygenRegular", sans-serif;
       color: var(--basic-color);  
     }
     
