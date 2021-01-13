@@ -46,12 +46,12 @@ const Line = styled.hr`
   margin-top: 2rem;
 `;
 
-export const ResultContainer = ({ title, value, scale }) => {
+export const ResultContainer = ({ title, value, scale, valueDecimal }) => {
   return (
     <ResultCard value={value}>
       <h3>{title}</h3>
       <dd>
-        <div>{value}%</div>
+        <div>{valueDecimal}</div>
       </dd>
       <Scale>
         <span> {scale[0]}</span>
@@ -68,6 +68,8 @@ ResultContainer.propTypes = {
   onClick: PropTypes.func,
 
   value: PropTypes.number,
+
+  valueDecimal: PropTypes.number,
 
   scale: PropTypes.array,
 
