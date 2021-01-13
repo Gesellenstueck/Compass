@@ -7,12 +7,16 @@ import { Header } from "../components/Header/Header";
 
 const Wrapper = styled.div`
   padding: 2rem 0 1rem 1.5rem;
+  width: 100%;
+  min-height: 100%;
+  /* overflow: hidden; */
+  position: fixed;
 `;
 
 const DraggableContainer = styled.div`
   padding-top: 6rem;
-  width: 100vw;
-  min-height: 100vh;
+  width: 375px;
+  height: 667px;
 `;
 
 const AddIcon = styled.img`
@@ -25,13 +29,8 @@ function Whiteboard() {
   const [cards, setCards] = useState(["primaryDark"]);
 
   const addCard = () => {
-    const colors = [
-      "primaryDark",
-      "primaryLight",
-      "secondaryDark",
-      "secondaryLight",
-    ];
-    const randomNumber = Math.floor([Math.random() * 4]);
+    const colors = ["primaryDark", "primaryLight", "secondaryDark"];
+    const randomNumber = Math.floor([Math.random() * 3]);
     setCards([...cards, colors[randomNumber]]);
   };
 
