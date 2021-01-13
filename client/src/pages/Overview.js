@@ -37,6 +37,7 @@ function Overview() {
           title={overviewDoc.questionDoc.question}
           value={overviewDoc.questionDoc.averageMood}
           scale={overviewDoc.scale}
+          valueDecimal={overviewDoc.questionDoc.averageMoodInDecimalRounded}
         />
       ))}
     </Wrapper>
