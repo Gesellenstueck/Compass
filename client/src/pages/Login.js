@@ -48,7 +48,7 @@ const LoginContainer = styled.form`
 
 function Login() {
   const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [team, setTeam] = useState("");
   const history = useHistory();
 
   const dispatch = useAuthDispatch();
@@ -58,8 +58,8 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await loginUser(dispatch, { name, password });
-      if (!response?.user) return;
+      const response = await loginUser(dispatch, { name, team });
+    if (!response?.user) return;
       history.push("/dashboard");
     } catch (error) {
       console.error(error);
@@ -78,13 +78,13 @@ function Login() {
           onChange={(event) => setName(event.target.value)}
           disabled={loading}
         />
-        <Input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          disabled={loading}
-        />
+        <select onChange={(event) => setTeam(event.target.value)}>
+          <option>Please choose a team</option>
+          <option value="Team1"  >Team 1</option>
+          <option value="Team2"  >Team 2</option>
+          <option value="Team3"  >Team 3</option>
+          <option value="Team4"  >Team 4</option>
+        </select>
 
         <InputBtn type="submit" value="Submit" />
 
