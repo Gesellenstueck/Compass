@@ -1,15 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
-const sizes = {
-  small: {
-    font: "Oxygen-Regular",
-  },
-  large: {
-    font: "Oxygen-Bold",
-  },
-};
-
 const Button = styled.button`
   border-radius: 1.875rem;
   letter-spacing: 0.07rem;
@@ -25,9 +16,6 @@ const Button = styled.button`
 
 Button.propTypes = {
   backgroundColor: PropTypes.string,
-
-  size: PropTypes.oneOf(["small", "large"]),
-
   onClick: PropTypes.func,
 };
 
