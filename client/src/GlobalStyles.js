@@ -73,8 +73,7 @@ button, input  {
   outline: none;
   cursor: pointer;  
   border:none;
-  font-family:"OxygenBold";
-  font-size:1.25rem;
+  font-size: 1.25rem;
   
 }
 

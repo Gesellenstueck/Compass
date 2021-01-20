@@ -17,7 +17,6 @@ const Button = styled.button`
   color: var(--emphasis-color);
   background: var(--basic-color);
   padding: 0.4rem 0;
-  font-family: ${(props) => sizes[props.size].font};
   :active {
     background: var(--emphasis-color);
     color: var(--basic-color);
