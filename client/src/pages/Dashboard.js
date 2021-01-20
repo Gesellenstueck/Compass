@@ -122,7 +122,6 @@ function Dashboard() {
           label="Private Board"
           imgSrc={Lockicon}
           alt="Lock Icon"
-          subline="Marie Groß, Lucas Naas..."
         />
         <AddCard bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
         <div></div>
