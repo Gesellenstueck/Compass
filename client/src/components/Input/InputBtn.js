@@ -9,7 +9,6 @@ const InputBtn = styled.input`
   color: var(--emphasis-color);
   background: var(--basic-color);
   padding: 0.4rem 0;
-  font-family: "Oxygen-Bold";
   :active {
     background: var(--emphasis-color);
     color: var(--basic-color);

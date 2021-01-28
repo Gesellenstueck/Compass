@@ -122,7 +122,6 @@ function Dashboard() {
           label="Private Board"
           imgSrc={Lockicon}
           alt="Lock Icon"
-          subline="Marie Groß, Lucas Naas..."
         />
         <AddCard bgColor="secondaryDark" imgSrc={Addicon} alt="Plus Icon" />
         <div></div>
@@ -137,9 +136,9 @@ function Dashboard() {
           alt="Smiley"
           subline={dateObj.date}
           isDisabled={disabled}
-          onClick={() =>
-            history.push("/survey/5fd09e58342aac296ab18e06") &&
-            setDisabled(true)
+          onClick={() => (!disabled) ? 
+          history.push("/survey/5fd09e58342aac296ab18e06") &&
+            setDisabled(true) : alert("You already participated in this week's survey :)")
           }
         />
         <Card

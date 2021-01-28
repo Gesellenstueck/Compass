@@ -6,7 +6,6 @@ const Input = styled.input`
   border-radius: 1.875rem;
   letter-spacing: 0.07rem;
   font-size: 1.25rem;
-  font-family: "Oxygen-Regular";
   color: var(--emphasis-color);
   background: var(--basic-color);
   border: none;

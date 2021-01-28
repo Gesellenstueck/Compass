@@ -15,11 +15,11 @@ function Overview() {
   useEffect(() => {
     const doFetch = async () => {
       const questionsArray = await getQuestions();
-
+      const team = JSON.parse(localStorage.getItem("currentUser")).team;
       const overviewDoc = await Promise.all(
         questionsArray.map(async (question) => {
           const scale = question.scale;
-          const questionDoc = await getResultsByQuestionID(question._id);
+          const questionDoc = await getResultsByQuestionID(question._id, team);
           return { questionDoc, scale };
         })
       );

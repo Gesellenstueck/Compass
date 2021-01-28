@@ -80,6 +80,7 @@ function Survey() {
       answer: index,
       id: questionDoc._id,
       userID: JSON.parse(localStorage.getItem("currentUser"))._id,
+      team: JSON.parse(localStorage.getItem("currentUser")).team,
       date: dateObj.weekNumber,
     });
     if (questionDoc.nextQuestion) {
